@@ -35,6 +35,19 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
+        compile('org.grails.plugins:gson:1.1.4')
+
+        compile ('joda-time:joda-time:2.3')
+
+        runtime('org.codehaus.groovy.modules.http-builder:http-builder:0.7') {
+            excludes 'xalan'
+            excludes 'xml-apis'
+            excludes 'groovy'
+        }
+
+        compile ('org.springframework:spring-test:3.1.2.RELEASE'){
+            excludes 'groovy'
+        }
     }
 
     plugins {
@@ -48,9 +61,7 @@ grails.project.dependency.resolution = {
         //runtime ":yui-minify-resources:0.1.4"
 
         build ":tomcat:$grailsVersion"
-
-        runtime ":database-migration:1.1"
-
         compile ':cache:1.0.0'
+        runtime ":cors:1.1.4"
     }
 }

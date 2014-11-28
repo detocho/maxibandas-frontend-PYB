@@ -1,13 +1,16 @@
 class UrlMappings {
 
-	static mappings = {
-		"/$controller/$action?/$id?"{
-			constraints {
-				// apply constraints here
-			}
-		}
+    static mappings = {
 
-		"/"(view:"/index")
-		"500"(view:'/error')
-	}
+        "/" (controller:'PYB',action:'Index')
+
+
+       /*
+       TODO podemos meter el login aqui?
+       "/listado/" (controller: 'Search', action:'Index')
+
+        "/banda/$bandId?" (controller:'VBP', action:'Index')
+        */
+
+    }
 }
