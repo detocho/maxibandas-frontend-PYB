@@ -21,7 +21,7 @@
     <r:layoutResources />
 </head>
 
-<body>
+<body ng-app="PYB" >
 <div class="mb">
     <header class="slide">
         <ul id="navToggle" class="button slide">
@@ -48,29 +48,6 @@
     </footer>
 </div>
 
-
-<!-- Scripts -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="${resource(dir: 'js', file: 'trunk.js')}"></script>
-<script type="text/javascript">
-    $('a').click(function() {
-        $('html, body').animate({
-            scrollTop : $($(this).attr('href')).offset().top
-        }, 500);
-        return false;
-    });
-    $(window).on("scroll", function() {
-        if ($(this).scrollTop() > 280) {
-            $("#menu").addClass("yellow");
-        } else {
-            $("#menu").removeClass("yellow");
-        }
-    });
-</script>
-<!--[if lt IE 9]>
-		<script src="${resource(dir: 'js', file: 'html5shiv.js')}"></script>
-		<![endif]-->
-<g:javascript library="application"/>
 <r:layoutResources />
 </body>
 </html>

@@ -4,9 +4,9 @@
     <meta name="layout" content="main"/>
     <title>maxibanda.com.mx</title>
 </head>
-<body>
+<body >
 
-<main>
+<main ng-controller="PYBController">
 
     <h2><span class="H2titulo">»</span>Escribe las caracteristicas de tu banda</h2>
     <div id="dataItemMain">
@@ -15,11 +15,10 @@
             <div class="data_etiqueta">¿Que musica tocas?</div>
             <div class="data_value">
                 <select class="caja_seleccion big" name="genero">
-                    <option value="Sinaloense">Selecciona un género</option>
-                    <option value="Sinaloense">Sinaloense</option>
-                    <option value="Rock">Rock</option>
-                    <option value="Pop">Pop</option>
-                    <option value="Alternativo">Alternativo</option>
+                    <option value="0">Selecciona un género</option>
+                    <% for(int index=0; index< groups.size(); index++){ %>
+                    <option value=${groups[index].categoryId}>${groups[index].name}</option>
+                    <% } %>
                 </select>
             </div>
         </div>
@@ -42,50 +41,24 @@
             </div>
         </div>
 
-        <div class="feature_item">
+        <div class="feature_item" >
             <div class="data_etiqueta">¿De donde eres?</div>
             <div class="data_value">
-                <select name="estado" id="id_estado" class="caja_seleccion big">
-                    <option value="0-none">Selecciona un estado</option>
-                    <option value="1-AGUASCALIENTES">AGUASCALIENTES</option>
-                    <option value="2-BAJA CALIFORNIA">BAJA CALIFORNIA</option>
-                    <option value="3-BAJA CALIFORNIA SUR">BAJA CALIFORNIA SUR</option>
-                    <option value="4-CAMPECHE">CAMPECHE</option>
+                <input  type="text" ui-Blur="searchZipcodes()" ng-model="zipcodeValue" class="caja_registro big" size="5" maxlength="5" name="zipcode" placeholder="Codigo Postal">
 
-                    <option value="5-COAHUILA">COAHUILA</option>
-                    <option value="6-COLIMA">COLIMA</option>
-                    <option value="7-CHIAPAS">CHIAPAS</option>
-                    <option value="8-CHIHUAHUA">CHIHUAHUA</option>
-                    <option value="9-DISTRITO FEDERAL">DISTRITO FEDERAL</option>
-                    <option value="10-DURANGO">DURANGO</option>
+                <div> {{zipcodeError}} </div>
+                <div ng-show="isValidZipcode">
+                    <div>{{zipcodeData.zipcode}}</div>
+                    <div>{{zipcodeData.parent_location[1].name}}</div>
+                    <div>{{zipcodeData.parent_location[0].name}}</div>
+                    <div>
+                    <select class="caja_seleccion big" name="locationId">
+                        <option value="0">Selecciona una colonia</option>
+                        <option ng-repeat="col in cols" value="{{col.locationId}}">{{col.name}}</option>
+                    </select>
+                    </div>
+                </div>
 
-                    <option value="11-GUANAJUATO">GUANAJUATO</option>
-                    <option value="12-GUERRERO">GUERRERO</option>
-                    <option value="13-HIDALGO">HIDALGO</option>
-                    <option value="14-JALISCO">JALISCO</option>
-                    <option value="15-MEXICO">MEXICO</option>
-                    <option value="16-MICHOACAN">MICHOACAN</option>
-
-                    <option value="17-MORELOS">MORELOS</option>
-                    <option value="18-NAYARIT">NAYARIT</option>
-                    <option value="19-NUEVO LEON">NUEVO LEON</option>
-                    <option value="20-OAXACA">OAXACA</option>
-                    <option value="21-PUEBLA">PUEBLA</option>
-                    <option value="22-QUERETARO">QUERETARO</option>
-
-                    <option value="23-QUINTANA ROO">QUINTANA ROO</option>
-                    <option value="24-SAN LUIS POTOSI">SAN LUIS POTOSI</option>
-                    <option value="25-SINALOA">SINALOA</option>
-                    <option value="26-SONORA">SONORA</option>
-                    <option value="27-TABASCO">TABASCO</option>
-                    <option value="28-TAMAULIPAS">TAMAULIPAS</option>
-
-                    <option value="29-TLAXCALA">TLAXCALA</option>
-                    <option value="30-VERACRUZ">VERACRUZ</option>
-                    <option value="31-YUCATAN">YUCATAN</option>
-                    <option value="32-ZACATECAS">ZACATECAS</option>
-
-                </select>
             </div>
         </div>
 
@@ -106,7 +79,10 @@
         <div class="feature_item">
             <div class="data_etiqueta">Muestranos un poco de tu talento</div>
             <div class="data_value">
-                <input class="caja_registro big" size="50" maxlength="50" type="text" name="url_video" placeholder="Link de youtube">
+                <input class="caja_registro big" size="50" maxlength="50" type="text" ui-Blur="embedVideo()" ng-model="urlVideo" name="url_video" placeholder="Link de youtube">
+                <div ng-show="isValidVideo">
+                    <iframe src="{{urlVideoEmbed}}" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div> no tienes?, nosotros lo hacemos preguntanos aqui..
         </div>
 
@@ -195,5 +171,16 @@
         <!--	</form> -->
     </div>
 </main>
+<script src="${resource(dir: 'js', file: 'jquery.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'jquery.form.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'angular.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'angular-resource.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'underscore-min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'app.js')}"></script>
+<script src="${resource(dir: 'js', file: 'controller.js')}"></script>
+<script src="${resource(dir: 'js', file: 'service.js')}"></script>
+<script >
+    var apiBaseUrl = "http://api.maxibanda.com.mx";
+</script>
 </body>
 </html>
