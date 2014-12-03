@@ -4,10 +4,13 @@ var express 	= require('express'),
 	searchUsers	= require('./routes/searchUsers'),
     categories  = require('./routes/categories'),
     locations	= require('./routes/locations'),
+    pictures    = require('./routes/pictures'),
    	dummy 		= require('./routes/dummy');
    	//misc = require('./routes/misc');
 
 var app = express();
+
+
 
 app.set('port', process.env.PORT || 8888);
 app.use(express.logger('dev'));
@@ -17,6 +20,11 @@ app.use(app.router);
 
 app.configure('development', function () {
     app.use(express.errorHandler());
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        next();
+    });
 });
 
 app.get('/ping',misc.ping);
@@ -26,6 +34,9 @@ app.post('/users/search/:admin', searchUsers.post);
 app.get('/categories/:categoryId',categories.get);
 
 app.get('/locations/:locationId', locations.get);
+
+app.post('/pictures', pictures.post);
+app.options('/pictures', pictures.options);
 
 
 //app.get('/catalog',catalog.get);

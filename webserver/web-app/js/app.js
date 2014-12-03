@@ -1,6 +1,6 @@
 'use strict'
 
-var module = angular.module('PYB',['PYBServices', 'my_ui']);
+var module = angular.module('PYB',['PYBServices', 'my_ui', 'angularFileUpload']);
 
 angular.module("my_ui", [])
     .directive('uiBlur', function() {
