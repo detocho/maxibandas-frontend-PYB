@@ -14,7 +14,7 @@
         <div class="feature_item">
             <div class="data_etiqueta">¿Que musica tocas?</div>
             <div class="data_value">
-                <select class="caja_seleccion big" name="genero">
+                <select ng-model="categoryId" class="caja_seleccion big" name="genero">
                     <option value="0">Selecciona un género</option>
                     <% for(int index=0; index< groups.size(); index++){ %>
                     <option value=${groups[index].categoryId}>${groups[index].name}</option>
@@ -26,18 +26,18 @@
         <div class="feature_item">
             <div class="data_etiqueta">¿Como te llamas?</div>
             <div class="data_value">
-                <input  class="caja_registro big" size="50" maxlength="50" type="text" name="name_band" placeholder="Nombre de tu banda">
+                <input ng-model="name"  class="caja_registro big" size="50" maxlength="50" type="text" name="name_band" placeholder="Nombre de tu banda">
             </div>
         </div>
 
         <div class="feature_item">
             <div class="data_etiqueta">¿Cuanto cobras?</div>
             <div class="data_value">
-                <input class="caja_registro big" type="text" size="10" maxlength="" name="price" placeholder="Precio $$$">
+                <input ng-model="price" class="caja_registro big" type="text" size="10" maxlength="" name="price" placeholder="Precio $$$">
             </div>
             <div class="data_value">
-                <input type="radio" name="PayForm" value="contado" checked /> Variable
-                <input type="radio" name="PayForm" value="credit" checked /> Fijo x evento
+                <input type="radio" ng-model="payForm" name="PayForm" value="contado" checked /> Variable
+                <input type="radio" ng-model="payForm" name="PayForm" value="credit" checked /> Fijo x evento
             </div>
         </div>
 
@@ -52,7 +52,7 @@
                     <div>{{zipcodeData.parent_location[1].name}}</div>
                     <div>{{zipcodeData.parent_location[0].name}}</div>
                     <div>
-                    <select class="caja_seleccion big" name="locationId">
+                    <select ng-model="locationId" class="caja_seleccion big" name="locationId">
                         <option value="0">Selecciona una colonia</option>
                         <option ng-repeat="col in cols" value="{{col.locationId}}">{{col.name}}</option>
                     </select>
@@ -65,13 +65,13 @@
         <div class="feature_item">
             <div class="data_etiqueta">¿Como te contactamos?</div>
             <div class="data_value">
-                <input name="email" type="text" id="id_email" class="caja_registro big" placeholder="Email" />
+                <input ng-model="email" name="email" type="text" id="id_email" class="caja_registro big" placeholder="Email" />
             </div>
         </div>
 
         <div class="feature_item">
             <div class="data_value">
-                <input name="telefonos" type="text" id="id_telefonos" class="caja_registro big" placeholder="Telefonos" />
+                <input ng-model="phones" name="telefonos" type="text" id="id_telefonos" class="caja_registro big" placeholder="Telefonos" />
                 <div class="reg_ejemplo"> Ej: (55)1234-5555, (55)5555-4444</div>
             </div>
         </div>
@@ -92,9 +92,21 @@
 
 
 
-                <input type="text" ng-model="myModelObj">
-                <input class="custom-input-file" type="file" ng-file-select="onFileSelect($files)">
-                <img ng-show="urlPic != null" ng-src="{{urlPic}}" class="thumb">
+
+                <input class="custom-input-file" type="file" ng-file-select="onFileSelect($files,0)">
+                <img ng-show="urlPic[0] != null" ng-src="{{urlPic[0]}}" class="thumb">
+
+
+                <input class="custom-input-file" type="file" ng-file-select="onFileSelect($files,1)">
+                <img ng-show="urlPic[1] != null" ng-src="{{urlPic[1]}}" class="thumb">
+
+
+                <input class="custom-input-file" type="file" ng-file-select="onFileSelect($files,2)">
+                <img ng-show="urlPic[2] != null" ng-src="{{urlPic[2]}}" class="thumb">
+
+
+                <input class="custom-input-file" type="file" ng-file-select="onFileSelect($files,3)">
+                <img ng-show="urlPic[3] != null" ng-src="{{urlPic[3]}}" class="thumb">
 
 
             </div>
@@ -103,14 +115,14 @@
         <div class="feature_item">
             <div class="data_value">
                 <div class="data_etiqueta">Describete mejor!!</div>
-                <textarea name="Description" cols="20" rows="10"></textarea>
+                <textarea ng-model="description" name="Description" cols="20" rows="10"></textarea>
             </div>
         </div>
 
         <div class="feature_item">
             <div class="data_etiqueta"></div>
             <div class="data_value">
-                <input class="btn-continue" id="btnContinuar" onclick="fin_publica();"  type="button" value="Comienza a recibir ofertas Publica ya!!!"/>
+                <input class="btn-continue" id="btnContinuar" ng-click="createBand()"  type="button" value="Comienza a recibir ofertas Publica ya!!!"/>
             </div>
         </div>
 

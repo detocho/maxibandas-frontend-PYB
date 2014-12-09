@@ -10,6 +10,7 @@ function PYBController ($scope, $http, $upload, Locations){
 
     $scope.isValidVideo = false;
     $scope.urlVideoEmbed = '';
+    $scope.urlPic = [];
 
 
 
@@ -58,7 +59,7 @@ function PYBController ($scope, $http, $upload, Locations){
 
     // ****************
 
-    $scope.onFileSelect = function($files) {
+    $scope.onFileSelect = function($files, indexPicture) {
         //$files: an array of files selected, each file has name, size, and type.
         for (var i = 0; i < $files.length; i++) {
             var file = $files[i];
@@ -80,7 +81,7 @@ function PYBController ($scope, $http, $upload, Locations){
             }).success(function (data, status, headers, config) {
                 // file is uploaded successfully
                 console.log(data);
-                $scope.urlPic = data.pictures[3].url;
+                $scope.urlPic[indexPicture] = data.pictures[3].url;
             });
             //.error(...)
             //.then(success, error, progress);
@@ -92,39 +93,23 @@ function PYBController ($scope, $http, $upload, Locations){
 
     // *******************
 
-    $scope.getPictureFile = function (){
+    $scope.createBand = function (){
 
-        alert("hola entre al la funcion de fotos");
-        document.getElementById("upfile").click();
+        console.log('vamos a crear la banda aqui comienzan las validaciones');
 
+        console.log ('imprimiendo valores capturados');
 
+        console.log('categoryID = '+$scope.categoryId);
+        console.log('nombre = '+$scope.name);
+        console.log('price = '+$scope.price);
+        console.log('payForm = '+$scope.payForm);
+        console.log('locationId = '+$scope.locationId);
+        console.log('email = '+$scope.email);
+        console.log('phones = '+$scope.phones);
+        console.log('video = '+$scope.urlVideo);
+        console.log('description = '+$scope.description);
     }
 
-    $scope.postPicture = function(){
-        alert("vamos a postear la imagen");
-    }
 
-    $scope.filesChanged = function(elm){
-        $scope.file = elm.file;
-        $scope.apply();
-    }
-
-    $scope.upload = function(){
-
-        var urlPostPicture = 'http://localhost:8888/pictures';
-
-        console.log("the file is"+$scope.file);
-        $http.post(urlPostPicture, $scope.file,{
-
-            headers:{'Content-Type':undefined}
-
-        })
-            .success(function (data){
-
-                console.log("La data es"+data);
-
-            })
-
-    }
 
 }
