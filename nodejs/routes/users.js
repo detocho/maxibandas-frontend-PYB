@@ -4,20 +4,34 @@ exports.get = function (request, response){
 	var json
 	
     json = {
-    	"id": userId,
-        "name": "Gio Paz",
-        "dealer_id": "123456",
-        "email": "gpaz02@maxipublicator.com.mx",
-        "password": "maxi123456345",
-        "phone": "Casa (55) 55-2345-2534",
-        "date_of_birth": "03-27-1986",
+        "id": userId,
+        "name": "",
         "location_id": "15",
-        "origin": "maxipublicator",
-        "profile_picture": "http://www.google.com",
-        "sex": "Hombre",
+        "registration_date": "Nov 9, 2014 1:45:11 PM",
+        "date_last_update": "Nov 9, 2014 1:45:11 PM",
+        "origin": "MB",
         "status": "active",
-        "user_type": "admin"
-	}
+        "user_type": "normal"
+    }
 	
 	response.json(200,json)
+}
+
+exports.post = function (request, response){
+
+    var userId = Math.floor((Math.random() * 10) + 1);
+    var json
+
+    json = {
+        "id": userId,
+        "name": "",
+        "location_id": "15",
+        "registration_date": "Nov 9, 2014 1:45:11 PM",
+        "date_last_update": "Nov 9, 2014 1:45:11 PM",
+        "origin": "MB",
+        "status": "active",
+        "user_type": "normal"
+    }
+
+    response.json(201,json)
 }

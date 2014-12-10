@@ -1,6 +1,6 @@
 'use strict'
 
-function PYBController ($scope, $http, $upload, Locations){
+function PYBController ($scope, $http, $upload, Locations, Bands){
 
 	$scope.zipcodeData      = '';
     $scope.zipcodeValue     = '';
@@ -11,6 +11,7 @@ function PYBController ($scope, $http, $upload, Locations){
     $scope.isValidVideo = false;
     $scope.urlVideoEmbed = '';
     $scope.urlPic = [];
+    $scope.picturesJson = [];
 
 
 
@@ -82,6 +83,15 @@ function PYBController ($scope, $http, $upload, Locations){
                 // file is uploaded successfully
                 console.log(data);
                 $scope.urlPic[indexPicture] = data.pictures[3].url;
+                // aqui procesamos el array de pictures, mas bien el josn
+                //TODO debemos revisar como hacemos para cuando quieren modificar una fotografia antes de subirla
+                $scope.picturesJson.push({
+                    picture_id :data.id,
+                    url : data.pictures[1].url,
+                    size : '200x160',
+                    secure_url : ''});
+
+                console.log ('el array ahora tiene = '+ JSON.stringify($scope.picturesJson));
             });
             //.error(...)
             //.then(success, error, progress);
@@ -97,6 +107,20 @@ function PYBController ($scope, $http, $upload, Locations){
 
         console.log('vamos a crear la banda aqui comienzan las validaciones');
 
+
+        var params = {
+
+        };
+
+        Bands.newband(params, function (data) {
+
+            console.log('la data del request de nueva banda es'+data[0]);
+
+        }, function (error) {
+
+            console.log ('Error en la llamada a la creacion de la banda'+error);
+        });
+
         console.log ('imprimiendo valores capturados');
 
         console.log('categoryID = '+$scope.categoryId);
@@ -108,6 +132,22 @@ function PYBController ($scope, $http, $upload, Locations){
         console.log('phones = '+$scope.phones);
         console.log('video = '+$scope.urlVideo);
         console.log('description = '+$scope.description);
+        console.log('pictures = '+ JSON.stringify($scope.picturesJson));
+
+        //TODO
+        /*
+         1.- generamos las validaciones para cada topico obligatorio
+         2.- generamos el model de datos para el item
+         3.- generamos un servicio con ajax para enviarle los datos ya preprocesados
+         4.- en el servicio
+            4.1.- Buscamos el user por el email
+            4.2.- obtenemos el id de usuario (si no esta lo creamos y enviamos un email de registro para que actualice su password)
+            4.3.- posteamos el item
+            4.4.- mandamos un email de activacion de item
+            4.5.- lo redirigimos logueado a su cuenta para administrar su anuncio y desde ahi le decimo que su anuncio esta listo para verlo
+            dale click aqui y lo mandamos a la vip del anuncio.
+            LISTO
+         */
     }
 
 

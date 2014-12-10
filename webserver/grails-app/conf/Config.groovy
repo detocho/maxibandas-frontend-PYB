@@ -62,7 +62,7 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        domainMainUsers = 'http://api.maxibanda.com.mx'
+        domainMainUsers = 'http://localhost:8888'
     }
     production {
         grails.logging.jul.usebridge = false

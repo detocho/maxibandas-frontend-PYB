@@ -3,7 +3,7 @@ exports.post = function (request, response){
     var out;
 
     out = {
-        "id": 1,
+        "id": Math.floor((Math.random() * 10) + 1),
         "pictures": [{
             "size": "origin",
             "url": "http://api.maxibanda.com.mx/pictures/uploads/2014/11/MB1-origin.jpeg",

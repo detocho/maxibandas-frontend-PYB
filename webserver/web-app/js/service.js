@@ -11,6 +11,13 @@ module.factory('Locations',function ($resource){
     });
 });
 
+module.factory('Bands', function ($resource){
+    var url = "/published/band";
+    return $resource(url, {},{
+       newband:{method:"GET"}
+    });
+});
+
 /*
 
  module.factory('Locations',function ($resource){
