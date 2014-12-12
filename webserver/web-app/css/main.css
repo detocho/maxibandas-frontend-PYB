@@ -1849,5 +1849,12 @@ h2 .H2titulo{
     height: 100px;
 }
 
+/**Errors*/
+.error{
+    color: darkred;
+    font-family: 'PT Sans',sans-serif;
+    font-size: 12px;
+}
+
 
 

@@ -8,15 +8,20 @@ function PYBController ($scope, $http, $upload, Locations, Bands){
     $scope.cols             = '';
     $scope.isValidZipcode   = false;
 
-    $scope.isValidVideo = false;
-    $scope.urlVideoEmbed = '';
-    $scope.urlPic = [];
-    $scope.picturesJson = [];
+    $scope.isValidVideo     = false;
+    $scope.urlVideoEmbed    = '';
+    $scope.urlPic           = [];
+    $scope.picturesJson     = [];
 
-
-
-
-
+    //errors control
+    $scope.errorName        = false;
+    $scope.errorCategory    = false;
+    $scope.errorPrice       = false;
+    $scope.errorLocationId  = false;
+    $scope.errorEmail       = false;
+    $scope.errorPhones      = false;
+    $scope.errorVideo       = false;
+    $scope.errorZipcode     = false;
 
     $scope.searchZipcodes = function() {
 
@@ -107,20 +112,6 @@ function PYBController ($scope, $http, $upload, Locations, Bands){
 
         console.log('vamos a crear la banda aqui comienzan las validaciones');
 
-
-        var params = {
-
-        };
-
-        Bands.newband(params, function (data) {
-
-            console.log('la data del request de nueva banda es'+data[0]);
-
-        }, function (error) {
-
-            console.log ('Error en la llamada a la creacion de la banda'+error);
-        });
-
         console.log ('imprimiendo valores capturados');
 
         console.log('categoryID = '+$scope.categoryId);
@@ -134,6 +125,75 @@ function PYBController ($scope, $http, $upload, Locations, Bands){
         console.log('description = '+$scope.description);
         console.log('pictures = '+ JSON.stringify($scope.picturesJson));
 
+        $scope.errorName        = false;
+        $scope.errorCategory    = false;
+        $scope.errorPrice       = false;
+        $scope.errorLocationId  = false;
+        $scope.errorEmail       = false;
+        $scope.errorPhones      = false;
+        $scope.errorZipcode     = false;
+
+        var publishedBand = true;
+
+        if(!$scope.categoryId){
+            $scope.errorCategory = true;
+            publishedBand = false;
+        }
+
+        if(!$scope.name){
+            $scope.errorName = true;
+            publishedBand = false;
+
+        }
+
+        if(!$scope.zipcodeValue){
+            $scope.errorZipcode = true;
+            publishedBand = false;
+        }
+
+        if(!$scope.price){
+            $scope.errorPrice = true;
+            publishedBand = false;
+        }
+
+        if(!$scope.locationId){
+            $scope.errorLocationId = true;
+            publishedBand = false;
+        }
+
+        if(!$scope.email){
+            $scope.errorEmail = true;
+            publishedBand = false;
+        }
+
+        if(!$scope.phones){
+            $scope.errorPhones = true;
+            publishedBand = false;
+        }
+
+
+        if (publishedBand){
+            alert ('Listo vamos a publicar la banda');
+        }
+
+        // esta es la funcion que hace el post de la banda *********
+        /*
+        var params = {
+
+        };
+
+        Bands.newband(params, function (data) {
+
+            console.log('la data del request de nueva banda es'+data[0]);
+            // aqui hacemos la redireccion
+            window.location="/published/endPublished/?bandId="+data[0];
+
+        }, function (error) {
+
+            console.log ('Error en la llamada a la creacion de la banda'+error);
+        });
+        */
+        // ***********************************
         //TODO
         /*
          1.- generamos las validaciones para cada topico obligatorio
