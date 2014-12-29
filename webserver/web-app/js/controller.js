@@ -172,9 +172,12 @@ function PYBController ($scope, $http, $upload, Locations, Bands){
         }
 
 
+
         if (publishedBand){
             alert ('Listo vamos a publicar la banda');
         }
+
+        return false;
 
         // esta es la funcion que hace el post de la banda *********
         /*

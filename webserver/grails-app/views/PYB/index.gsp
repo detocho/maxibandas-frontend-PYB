@@ -70,8 +70,11 @@
         <div class="feature_item">
             <div class="data_etiqueta">¿Como te contactamos?</div>
             <div class="data_value">
-                <input ng-model="email" name="email" type="text" id="id_email" class="caja_registro big" placeholder="Email" />
+                <input ng-model="email" name="email" type="email" id="id_email" class="caja_registro big" placeholder="Email" />
                 <span class="error" ng-show="errorEmail">El email es requerido</span>
+
+
+
             </div>
         </div>
 

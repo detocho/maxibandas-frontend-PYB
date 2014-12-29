@@ -2,10 +2,16 @@ class UrlMappings {
 
     static mappings = {
 
-        "/" (controller:'PYB',action:'Index')
+        "/" (controller:'PYB',action:'published')
 
-        "/band" (controller:'PYB',action:'published')
-        "/endPublished" (controller: 'PYB', action: 'endPublished')
+        "/$controller/$action?/$id?"{
+            constraints {
+                // apply constraints here
+            }
+        }
+
+       // "/band" (controller:'PYB',action:'published')
+       // "/endPublished" (controller: 'PYB', action: 'endPublished')
        /*
        TODO podemos meter el login aqui?
        "/listado/" (controller: 'Search', action:'Index')
