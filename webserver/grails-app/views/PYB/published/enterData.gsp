@@ -11,8 +11,8 @@
     <h2><span class="H2titulo">»</span>Escribe las caracteristicas de tu banda</h2>
 
     <div id="dataItemMain">
-    <g:form name="published"  ng-submit="createBand()">
-    <div class="feature_item">
+        <g:form name="published"  ng-submit="createBand()">
+            <div class="feature_item">
 
                 <div class="data_etiqueta">¿Que musica tocas?</div>
                 <div class="data_value">
@@ -137,12 +137,13 @@
 
                 </div>
             </div>
+            <input type="hidden" name="pictures" value="{{picturesJson}}"/>
 
 
 
-        <g:submitButton name="cancel" value="Cancelar"></g:submitButton>
+            <g:submitButton name="cancel" value="Cancelar"></g:submitButton>
 
-    </g:form>
+        </g:form>
     </div>
 </main>
 <script src="${resource(dir: 'js', file: 'jquery.min.js')}"></script>

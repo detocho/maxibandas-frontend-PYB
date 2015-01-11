@@ -43,23 +43,88 @@ class PYBController {
                 flow.email          = params.email
                 flow.zipcode        = params.zipcode
                 flow.locationId     = params.locationId
-                flow.urlVide        = params.url_video
+                flow.urlVideo       = params.url_video
+                flow.pictures       = params.pictures
 
 
-            }.to 'processData'
+            }.to 'stepPassword'
             on('cancel').to 'errorPublished'
         }
 
+        stepPassword{
+           //TODO aqui debemos ver el algoritmo para obtener el password del user siempre y cuando no este logueado
+            //TODO revisar el tema del login
+
+            on('submit').to 'processData'
+            on('error').to 'errorPublished'
+        }
+
         processData{
+            action {
 
-            println "Ahora aqui desde el procesamiento de datos tenemos"+flow.description
+                def publishedMap = [
+                        category_id         : flow.genero,
+                        name                : flow.nameBand,
+                        price_min           : flow.price,
+                        price_max           : flow.price,
+                        currency_type       : "MXP", //TODO donde metemos el payform
+                        location_id         : flow.locationId,
+                        service_locations   : [], // TODO
+                        events_types        : [], // TODO
+                        web_page            : "",
+                        pictures            : flow.pictures,
+                        url_videos          : flow.urlVideo,
+                        description         : flow.description,
+                        type_item           : "free",
+                        attributes          : []
+                ]
 
-            on('submit'){
+                def parameters = [
+                        access_token    : '', // TODO va de la mano con el tema del login
+                        email           : flow.email,
+                        pass            : params.pass
+                ]
 
-                //println "los parametros que pasamos son "+flow.params
 
-            }.to 'endPublished'
-            on('cancel').to 'errorPublished'
+                // vamos a imprimir la data que enviarmeos al aservicio
+
+                println "------ los parametros que enviaremos son :"
+                println "access_token = "+parameters.access_token
+                println "email = "+parameters.email
+                println "pass = "+parameters.pass
+
+                println "------- los datos del json de prepublished son :"
+                println "category_id = "+publishedMap.category_id
+                println "name = "+publishedMap.name
+                println "price_min = "+publishedMap.price_min
+                println "price_max = "+publishedMap.price_max
+                println "currency_type = "+publishedMap.currency_type
+                println "location_id = "+publishedMap.location_id
+                println "service_locations = "+ publishedMap.service_locations
+                println "events_types = "+publishedMap.events_types
+                println "web_page = "+publishedMap.web_page
+                println "pictures = "+publishedMap.pictures
+                println "url_videos = "+publishedMap.url_videos
+                println "description  = "+publishedMap.description
+                println "type_item = "+publishedMap.type_item
+                println "attributes = "+publishedMap.attributes
+
+
+                def bandId = pybService.published(parameters, publishedMap)
+
+                if (bandId){
+                    flow.bandId = bandId
+                    //TODO colocar el servicio que envia un email de publicación
+                    return success()
+                }else {
+                    return error()
+                }
+
+
+
+            }
+            on('success').to 'endPublished'
+            on('error').to 'errorPublished'
         }
 
         endPublished{

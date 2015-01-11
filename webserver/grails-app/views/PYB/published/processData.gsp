@@ -6,7 +6,9 @@ El nameTest es${datos}
 <div>
     <h2>Aqui un ejemplo de como tenemos los datos</h2>
     <ul>
-        <li>${description}</li>
+        <li>DEscripcion:${description}</li>
+        <li>Genero:${genero}</li>
+        <li>Price:${price}</li>
     </ul>
 </div>
 <g:form>

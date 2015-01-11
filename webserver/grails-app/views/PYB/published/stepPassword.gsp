@@ -8,20 +8,13 @@
 <main>
 
     <div id="dataItemMain">
+        <h1>Listo!!, ahora solo necesitamos que coloques tu password, si no tienes, crea uno </h1>
 
-        <h1>Listo termino de publicar que bien !!!!</h1>
-
-        <div>
-            <h2>Listo publicaste!!!</h2>
-            <ul>
-                <li>id:${bandId}</li>
-            </ul>
-        </div>
         <g:form>
+            <input type="password" name="pass"/>
             <g:submitButton name="submit" value="Siguiente"></g:submitButton>
             <g:submitButton name="cancel" value="Cancelar"></g:submitButton>
         </g:form>
-
     </div>
 </main>
 </body>

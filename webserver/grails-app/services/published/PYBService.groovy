@@ -34,7 +34,7 @@ class PYBService {
             if (it.status == 'active'){
                 groups.add(
 
-                        categoryId:it.categoryId,
+                        categoryId:it.category_id,
                         name:it.name
                 )
             }
@@ -45,52 +45,63 @@ class PYBService {
     }
 
     def published(def params, def jsonPrepublished){
-        //generamos el json con los parametros que se obtienen
-        /*
-        4.- en el servicio
-        4.1.- Buscamos el user por el email
-        4.2.- obtenemos el id de usuario (si no esta lo creamos y enviamos un email de registro para que actualice su password)
-        4.3.- posteamos el item
-        4.4.- mandamos un email de activacion de item
-        4.5.- lo redirigimos logueado a su cuenta para administrar su anuncio y desde ahi le decimo que su anuncio esta listo para verlo
-        dale click aqui y lo mandamos a la vip del anuncio.
-        */
 
+
+        def accessToken = params.access_token
+        def email       = params.email
+        def pass        = params.pass
+
+
+        def phone       = jsonPrepublished.phone
+        def locationId  = jsonPrepublished.location_id
+        def origin      = 'PYB'
+
+        def published   = false
         def bandId
-        def email = 'algunmail@dominio.com'
-        def phone = 'casa 55 2534-5465'
-        def pass = '****'
-        def locationId = 'MXNGD1234'
-        def origin = 'PYB'
 
-        def result = 'No encontrado'
-        println "El email a buscar es"+params.email
-        def userId = searchUser(params.email)
 
-        if(userId){
-           result = userId
-        }else{
-           result = createUser(email, phone, pass, locationId, origin)
+
+        if (accessToken){
+
+           if(validAccessToken(accessToken)){
+               published = true
+           }
+
+        } else {
+
+
+            def userId = searchUser(params.email)
+            if(userId){
+                userId = userId
+            }else{
+
+                userId = createUser(email, phone, pass, locationId, origin)
+            }
+
         }
-        if (result){ // TODO si encontramos el usuario entonces hacemo un post de la banda en internal
 
-            //definimos las variables que enviaremos con el body
+        if (!published) {
+            accessToken = getAccessToken(email, pass)
+        }
 
-            def categoryId = ''
-            def name = ''
-            def priceMin = ''
-            def priceMax = ''
-            def currencyType = ''
-            def serviceLocations = ''
-            def eventsTypes = ''
-            def managerId = result //TODO revisar que en el metodo internal, podamos postear el user_id
-            def webPage = ''
-            def pictures = ''
-            def urlVideos = ''
-            def description = ''
-            def typeItem = ''
-            def attributes = ''
-            def status = 'active'
+
+        if (accessToken){
+
+
+            def categoryId          = jsonPrepublished.category_id
+            def name                = jsonPrepublished.name
+            def priceMin            = jsonPrepublished.price_min
+            def priceMax            = jsonPrepublished.price_max
+            def currencyType        = jsonPrepublished.currency_type
+            def serviceLocations    = jsonPrepublished.service_locations
+            def eventsTypes         = jsonPrepublished.envents_types
+            def webPage             = jsonPrepublished.web_page
+            def pictures            = jsonPrepublished.pictures
+            def urlVideos           = jsonPrepublished.url_videos
+            def description         = jsonPrepublished.description
+            def typeItem            = jsonPrepublished.type_item
+            def attributes          = jsonPrepublished.attributes
+            def status              = 'active'
 
 
             def bodyBand = [
@@ -103,7 +114,6 @@ class PYBService {
                     locationId          : locationId,
                     serviceLocations    : serviceLocations,
                     eventsTypes         : eventsTypes,
-                    managerId           : managerId,
                     webPage             : webPage,
                     pictures            : pictures,
                     urlVideos           : urlVideos,
@@ -114,7 +124,7 @@ class PYBService {
 
             ]
 
-            bandId = createBandInternal(bodyBand)
+            bandId = createBand(bodyBand, accessToken)
 
         }
 
@@ -123,24 +133,21 @@ class PYBService {
 
     def searchUser(def email){
 
-
         def userId
 
-        println "Estamos buscando ... "+email
         def result = restService.getResource("/users/searchByEmail/"+email+"/")
-        println "la data encontrada es "+result
+
         if(result.status == HttpServletResponse.SC_OK){
             //TODO agregar siempre y cuando el estatus del usuario sea active
             userId = result.data.user_id
         }
-        println "El user id encontrado es "+userId
+
         userId
 
     }
 
     def createUser(def email, def phone, def pass, def locationId, def origin){
 
-        println "vamos a crear el usuario"
         def userId
         def body = [
 
@@ -154,7 +161,6 @@ class PYBService {
 
         def result = restService.postResource("/users/", body)
 
-        println "el resultado obtenido del create es"+result
         if (result.status == HttpServletResponse.SC_CREATED){
             userId = result.data.id
         }
@@ -162,20 +168,43 @@ class PYBService {
         userId
     }
 
-    def createBandInternal (def body){
+    def createBand (def body, def accessToken){
 
-        println "vamos a crear la banda"
         def bandId
 
-        def result = restService.postResource("/bands/", body)
+        def params = [
+                access_token:accessToken
+        ]
+        def result = restService.postResource("/bands/", params, body)
 
-        println "el resultado obtenido del createband es"+result
         if (result.status == HttpServletResponse.SC_CREATED){
             bandId = result.data.band_id
         }
 
         bandId
 
+    }
+
+
+    def getAccessToken (def email, def pass){
+
+        def accessToken = 'aksdaASE2312312312313'
+
+        def body = [
+                email:email,
+                password: pass
+        ]
+
+        def result = restService.postResource("/oauth/", body)
+
+        if (result.status == HttpServletResponse.SC_CREATED){
+            accessToken = result.data.access_token
+        }
+        accessToken
+    }
+
+    def validAccessToken (def accessToken){
+        true
     }
 
 

@@ -8,6 +8,7 @@ var express 	        = require('express'),
     searchUserByEmail 	= require('./routes/searchUserByEmail'),
     bands               = require('./routes/bands'),
     zipcodes            = require('./routes/zipcodes'),
+    oauth               = require('./routes/oauth'),
    	dummy 		        = require('./routes/dummy');
    	//misc = require('./routes/misc');
 
@@ -47,6 +48,9 @@ app.options('/pictures', pictures.options);
 
 app.get('/bands/:bandId', bands.get);
 app.post('/bands/',bands.post);
+
+app.post('/oauth',oauth.post);
+app.options('/oauth', oauth.options);
 
 
 //app.get('/catalog',catalog.get);
