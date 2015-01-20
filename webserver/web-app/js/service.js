@@ -18,6 +18,23 @@ module.factory('Bands', function ($resource){
     });
 });
 
+// TODO generar un servicio para las categorias
+module.factory('Categories', function($resource){
+    var url = apiBaseUrl + "/categories/MX2";
+    return $resource(url,{},{
+       socialEvents:{method:"GET"}
+    });
+
+});
+// TODO generar un servicio para los estados
+module.factory('States', function($resource){
+    var url = apiBaseUrl + "/locations/MX";
+    return $resource(url, {},{
+       stateEvents:{method:"GET"}
+    });
+
+});
+
 /*
 
  module.factory('Locations',function ($resource){

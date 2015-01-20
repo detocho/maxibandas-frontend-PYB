@@ -23,6 +23,7 @@ a:hover
     text-decoration:underline;
 }
 
+
 #mainHeader
 {
     position:fixed;
@@ -237,6 +238,7 @@ a.headerLogo
     background-position:right;
 
 }
+
 
 #searchFree
 {

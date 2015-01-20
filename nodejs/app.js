@@ -37,8 +37,10 @@ app.post('/users/', users.post);
 app.post('/users/search/:admin', searchUsers.post);
 
 app.get('/categories/:categoryId',categories.get);
+app.options('/categories/:categoryId', categories.options);
 
 app.get('/locations/:locationId', locations.get);
+app.options('/locations/:locationId', locations.options);
 app.get('/locations/zipcodes/:zipcodeId', zipcodes.get);
 app.options('/locations/zipcodes/:zipcodeId', zipcodes.options);
 app.get('/users/searchByEmail/:email', searchUserByEmail.get);

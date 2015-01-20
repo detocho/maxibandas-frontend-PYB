@@ -34,17 +34,19 @@ class PYBController {
                 println "hola aqui estoy"
                 println "los parametros con "+params
 
-                flow.nameBand       = params.name_band
-                flow.phones         = params.telefonos
-                flow.description    = params.Description
-                flow.genero         = params.genero
-                flow.price          = params.price
-                flow.payForm        = params.payForm
-                flow.email          = params.email
-                flow.zipcode        = params.zipcode
-                flow.locationId     = params.locationId
-                flow.urlVideo       = params.url_video
-                flow.pictures       = params.pictures
+                flow.nameBand           = params.name_band
+                flow.phones             = params.telefonos
+                flow.description        = params.Description
+                flow.genero             = params.genero
+                flow.price              = params.price
+                flow.payForm            = params.payForm
+                flow.email              = params.email
+                flow.zipcode            = params.zipcode
+                flow.locationId         = params.locationId
+                flow.urlVideo           = params.url_video
+                flow.pictures           = params.pictures
+                flow.socialEvents       = params.social_event
+                flow.serviceLocations   = params.locations_event
 
 
             }.to 'stepPassword'
@@ -69,8 +71,8 @@ class PYBController {
                         price_max           : flow.price,
                         currency_type       : "MXP", //TODO donde metemos el payform
                         location_id         : flow.locationId,
-                        service_locations   : [], // TODO
-                        events_types        : [], // TODO
+                        service_locations   : flow.serviceLocations,
+                        events_types        : flow.socialEvents,
                         web_page            : "",
                         pictures            : flow.pictures,
                         url_videos          : flow.urlVideo,

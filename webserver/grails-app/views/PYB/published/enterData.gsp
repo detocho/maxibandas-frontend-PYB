@@ -69,6 +69,26 @@
             </div>
 
             <div class="feature_item">
+                <div class="data_etiqueta">¿En que estados puedes tocar?</div>
+                <div class="data_value">
+
+                    <span ng-repeat="state in stateEventsData" >
+                        <input type="checkbox" name="locations_event" value="{{state.locationId}}" /> {{state.name}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="feature_item">
+                <div class="data_etiqueta">¿En que eventos tocas?</div>
+                <div class="data_value">
+                    <span ng-repeat="event in socialEventsData" >
+                        <input type="checkbox" name="social_event" value="{{event.categoryId}}" /> {{event.name}}
+                    </span>
+
+                </div>
+            </div>
+
+            <div class="feature_item">
                 <div class="data_etiqueta">¿Como te contactamos?</div>
                 <div class="data_value">
                     <input ng-model="email" name="email" type="email" id="id_email" class="caja_registro big" placeholder="Email" required />

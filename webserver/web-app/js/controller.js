@@ -1,6 +1,6 @@
 'use strict'
 
-function PYBController ($scope, $http, $upload, Locations, Bands){
+function PYBController ($scope, $http, $upload, Locations, Bands, Categories,States){
 
 	$scope.zipcodeData      = '';
     $scope.zipcodeValue     = '';
@@ -13,6 +13,9 @@ function PYBController ($scope, $http, $upload, Locations, Bands){
     $scope.urlPic           = [];
     $scope.picturesJson     = [];
 
+    $scope.socialEventsData = '';
+    $scope.stateEventsData  = '';
+
     //errors control
     $scope.errorName        = false;
     $scope.errorCategory    = false;
@@ -22,6 +25,39 @@ function PYBController ($scope, $http, $upload, Locations, Bands){
     $scope.errorPhones      = false;
     $scope.errorVideo       = false;
     $scope.errorZipcode     = false;
+
+    $scope.stateEvents = function(){
+        var params = {};
+        States.stateEvents(params, function (data){
+
+
+            $scope.stateEventsData = data.children_locations;
+
+
+        }, function (error) {
+
+            $scope.stateEventsData = '';
+        });
+    };
+
+    $scope.stateEvents();
+
+    $scope.socialEvents = function(){
+        var params = {};
+        Categories.socialEvents(params, function (data){
+
+
+            $scope.socialEventsData = data.children_categories;
+
+
+
+        }, function (error) {
+
+            $scope.socialEventsData = '';
+        });
+    };
+
+    $scope.socialEvents();
 
     $scope.searchZipcodes = function() {
 

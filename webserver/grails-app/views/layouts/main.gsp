@@ -24,15 +24,9 @@
 <body ng-app="PYB" >
 <div class="mb">
     <header class="slide">
-        <ul id="navToggle" class="button slide">
-            <li></li><li></li><li></li>
-        </ul>
         <a href="/" > <h1 class="logo"> Tu banda está aquí </h1> </a>
-
-
     </header>
     <div class="content slide">
-        <br><br><br>
         <g:layoutBody/>
     </div>
     <footer>
