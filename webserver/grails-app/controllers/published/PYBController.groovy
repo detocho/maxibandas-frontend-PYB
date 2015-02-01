@@ -12,6 +12,8 @@ class PYBController {
         begin{
             action{
 
+                //TODO aqui definimos si esta logueado
+
                 flow.nameBand = 'los biscochos'
                 flow.groups  = pybService.getGroups()
                 flow.nameTest = 'david'
@@ -26,6 +28,7 @@ class PYBController {
 
         enterData {
 
+            //TODO debemos revisar el tema de la uthenticación aqui
             [model: [flow.groups, flow.nameBand, flow.nameTest]]
 
             on('submit'){
@@ -139,6 +142,8 @@ class PYBController {
         }
 
     }
+
+
 
 /*
     def index() {

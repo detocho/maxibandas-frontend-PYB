@@ -615,6 +615,33 @@ transform: rotate(-35deg);
 .upload b{
 	display:none;
 }
+
+/****  Para el PYB **/
+.gridFeatures{
+    border:0px solid #CCC;
+    width:1000px;
+
+}
+.gridFeatures ul
+{
+    list-style: none;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+
+}
+.gridFeatures li a{
+    text-decoration:none;
+}
+.gridFeatures li{
+    /*border-right: 1px  dashed #dedede;
+    border-bottom: 1px dashed #dedede;*/
+    float: left;
+    height: auto;
+    position: relative;
+    text-align: left;
+    width: 200px;
+    padding: 3px 0 0 0;
+}
 @media only screen and (max-width: 780px) {
 	header {
 		height: 65px;

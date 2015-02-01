@@ -37,7 +37,7 @@
             <div class="feature_item">
                 <div class="data_etiqueta">¿Cuanto cobras?</div>
                 <div class="data_value">
-                    <input ng-model="price" class="caja_registro big" type="text" size="10" maxlength="" name="price" placeholder="Precio $$$" required >
+                    <input ng-model="price" class="caja_registro big" currency-input = "" type="text" size="10" maxlength="" name="price"  required >
                     <span class="error" ng-show="errorPrice">El precio es requerido</span>
                 </div>
                 <div class="data_value">
@@ -68,22 +68,36 @@
                 </div>
             </div>
 
-            <div class="feature_item">
+            <div class="feature_item" ng-show="isValidZipcode" >
                 <div class="data_etiqueta">¿En que estados puedes tocar?</div>
-                <div class="data_value">
+                <div class="data_value" >
+                    <div class="gridFeatures">
+                        <ul>
 
-                    <span ng-repeat="state in stateEventsData" >
-                        <input type="checkbox" name="locations_event" value="{{state.locationId}}" /> {{state.name}}
-                    </span>
+                                <span ng-repeat="state in stateEventsData">
+                                    <li>
+
+                                    <input type="checkbox" name="locations_event" value="{{state.locationId}}" />
+                                        {{state.name}}
+                                    </li>
+                                </span>
+                        </ul>
+                    </div>
+
+
                 </div>
             </div>
 
             <div class="feature_item">
                 <div class="data_etiqueta">¿En que eventos tocas?</div>
                 <div class="data_value">
+                    <div class="gridFeatures">
+                        <ul>
                     <span ng-repeat="event in socialEventsData" >
-                        <input type="checkbox" name="social_event" value="{{event.categoryId}}" /> {{event.name}}
+                        <li><input type="checkbox" name="social_event" value="{{event.categoryId}}" /> {{event.name}}</li>
                     </span>
+                        </ul>
+                    </div>
 
                 </div>
             </div>

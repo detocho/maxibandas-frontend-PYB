@@ -79,7 +79,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
             $scope.zipcodeData      = '';
             $scope.zipcodeError     = "Codigo postal = "+$scope.zipcodeValue+" no encontrado";
         });
-    }
+    };
 
     $scope.embedVideo = function (){
 
@@ -97,7 +97,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
                 $scope.isValidVideo = true;
             }
         }
-    }
+    };
 
     // ****************
 
