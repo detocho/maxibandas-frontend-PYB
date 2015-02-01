@@ -107,7 +107,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
             var file = $files[i];
             console.log("EL file a cargar es"+file);
             $scope.upload = $upload.upload({
-                url: 'http://localhost:8888/pictures/', //upload.php script, node.js route, or servlet url
+                url: 'http://api.maxibanda.com.mx/pictures/', //upload.php script, node.js route, or servlet url
                 method: 'POST',
                 //headers: {'header-key': 'header-value'},
                 //withCredentials: true,

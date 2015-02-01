@@ -37,7 +37,7 @@
             <div class="feature_item">
                 <div class="data_etiqueta">¿Cuanto cobras?</div>
                 <div class="data_value">
-                    <input ng-model="price" class="caja_registro big" currency-input = "" type="text" size="10" maxlength="" name="price"  required >
+                    <input ng-model="price" class="caja_registro big" type="text" size="10" maxlength="" name="price"  required >
                     <span class="error" ng-show="errorPrice">El precio es requerido</span>
                 </div>
                 <div class="data_value">
@@ -191,8 +191,8 @@
 <script src="${resource(dir: 'js', file: 'controller.js')}"></script>
 <script src="${resource(dir: 'js', file: 'service.js')}"></script>
 <script >
-    //var apiBaseUrl = "http://api.maxibanda.com.mx";
-    var apiBaseUrl = "http://" + document.domain + "\\:8888"
+    var apiBaseUrl = "http://api.maxibanda.com.mx";
+    //var apiBaseUrl = "http://" + document.domain + "\\:8888"
 </script>
 </body>
 </html>

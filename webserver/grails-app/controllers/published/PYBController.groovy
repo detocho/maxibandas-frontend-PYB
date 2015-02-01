@@ -85,7 +85,8 @@ class PYBController {
                 ]
 
                 def parameters = [
-                        access_token    : '', // TODO va de la mano con el tema del login
+                        //access_token    : '', // TODO va de la mano con el tema del login
+                        phone           : flow.phones,
                         email           : flow.email,
                         pass            : params.pass
                 ]

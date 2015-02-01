@@ -34,7 +34,7 @@ class PYBService {
             if (it.status == 'active'){
                 groups.add(
 
-                        categoryId:it.category_id,
+                        categoryId:it.categoryId,
                         name:it.name
                 )
             }
@@ -50,9 +50,8 @@ class PYBService {
         def accessToken = params.access_token
         def email       = params.email
         def pass        = params.pass
+        def phone       = params.phone
 
-
-        def phone       = jsonPrepublished.phone
         def locationId  = jsonPrepublished.location_id
         def origin      = 'PYB'
 
@@ -94,7 +93,7 @@ class PYBService {
             def priceMax            = jsonPrepublished.price_max
             def currencyType        = jsonPrepublished.currency_type
             def serviceLocations    = jsonPrepublished.service_locations
-            def eventsTypes         = jsonPrepublished.envents_types
+            def eventsTypes         = jsonPrepublished.events_types
             def webPage             = jsonPrepublished.web_page
             def pictures            = jsonPrepublished.pictures
             def urlVideos           = jsonPrepublished.url_videos
@@ -106,19 +105,19 @@ class PYBService {
 
             def bodyBand = [
 
-                    categoryId          : categoryId,
+                    category_id         : categoryId,
                     name                : name,
-                    priceMin            : priceMin,
-                    priceMax            : priceMax,
-                    currencyType        : currencyType,
-                    locationId          : locationId,
-                    serviceLocations    : serviceLocations,
-                    eventsTypes         : eventsTypes,
-                    webPage             : webPage,
+                    price_min           : priceMin,
+                    price_max           : priceMax,
+                    currency_type       : currencyType,
+                    location_id         : locationId,
+                    service_locations   : serviceLocations,
+                    events_types        : eventsTypes,
+                    web_page            : webPage,
                     pictures            : pictures,
-                    urlVideos           : urlVideos,
+                    url_videos          : urlVideos,
                     description         : description,
-                    typeItem            : typeItem,
+                    type_item           : typeItem,
                     attributes          : attributes ,
                     status              : status
 
@@ -158,13 +157,14 @@ class PYBService {
                 origin:origin
         ]
 
-
+        println "El body para crear el usuario es "+body
         def result = restService.postResource("/users/", body)
 
         if (result.status == HttpServletResponse.SC_CREATED){
             userId = result.data.id
         }
 
+        println "El usuario creado es"+userId
         userId
     }
 
@@ -175,11 +175,14 @@ class PYBService {
         def params = [
                 access_token:accessToken
         ]
+        println "El body del la creacion de banda es"+body
         def result = restService.postResource("/bands/", params, body)
 
         if (result.status == HttpServletResponse.SC_CREATED){
             bandId = result.data.band_id
         }
+
+        println "La banda creada es "+bandId
 
         bandId
 
@@ -195,11 +198,14 @@ class PYBService {
                 password: pass
         ]
 
+        println "para obtener el token de acceso el body es"+body
+
         def result = restService.postResource("/oauth/", body)
 
         if (result.status == HttpServletResponse.SC_CREATED){
             accessToken = result.data.access_token
         }
+        println "El access token es"+accessToken
         accessToken
     }
 
