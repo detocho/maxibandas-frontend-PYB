@@ -7,14 +7,14 @@ blockquote, q {quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
 table {border-collapse: collapse;border-spacing: 0;}
 b{font-weight:700}
-main{border: 1px solid red; margin-top: 70px;}
+main{border: 0px solid red; margin-top: 70px;}
 /* @end */
 
 
 body {
 	background-color: #fff;
 	font: 12px Arial, Helvetica, Geneva, sans-serif;
-	color: #9aa6af;
+
 }
 .mb {
 	overflow: hidden;
@@ -135,8 +135,8 @@ min-height: 450px;
     padding: 12% 0px 12% 0px;
 }
 h2{
-	font-size:5em;
-	color:#EFDEC5;
+	font-size:3em;
+	color:#000;
 	font-weight:900;
 	letter-spacing: -1px;
 }
@@ -510,6 +510,7 @@ footer {
 	padding: 10px 2%;
 	display: inline-block;
 	width: 96%;
+    color: #FFF;
 }
 .foo_down {
 	padding: 20px 2%;

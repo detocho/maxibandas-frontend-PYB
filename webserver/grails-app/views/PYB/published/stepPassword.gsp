@@ -8,12 +8,13 @@
 <main>
 
     <div id="dataItemMain">
-        <h1>Listo!!, ahora solo necesitamos que coloques tu password, si no tienes, crea uno </h1>
+        <br>
+        <h2>Listo!!, ahora solo necesitamos que coloques tu password, si no tienes, crea uno </h2>
 
         <g:form>
-            <input type="password" name="pass"/>
-            <g:submitButton name="submit" value="Siguiente"></g:submitButton>
-            <g:submitButton name="cancel" value="Cancelar"></g:submitButton>
+            <input  class="caja_registro big" type="password" name="pass"/>
+            <g:submitButton name="submit" class="btn-continue"  value="Siguiente"></g:submitButton>
+            <g:submitButton name="cancel" class="btn-continue"  value="Cancelar"></g:submitButton>
         </g:form>
     </div>
 </main>

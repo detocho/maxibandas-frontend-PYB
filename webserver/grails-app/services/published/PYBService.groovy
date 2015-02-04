@@ -157,14 +157,12 @@ class PYBService {
                 origin:origin
         ]
 
-        println "El body para crear el usuario es "+body
         def result = restService.postResource("/users/", body)
 
         if (result.status == HttpServletResponse.SC_CREATED){
             userId = result.data.id
         }
 
-        println "El usuario creado es"+userId
         userId
     }
 
@@ -175,14 +173,12 @@ class PYBService {
         def params = [
                 access_token:accessToken
         ]
-        println "El body del la creacion de banda es"+body
+
         def result = restService.postResource("/bands/", params, body)
 
         if (result.status == HttpServletResponse.SC_CREATED){
             bandId = result.data.band_id
         }
-
-        println "La banda creada es "+bandId
 
         bandId
 
@@ -191,21 +187,20 @@ class PYBService {
 
     def getAccessToken (def email, def pass){
 
-        def accessToken = 'aksdaASE2312312312313'
+        def accessToken
 
         def body = [
                 email:email,
                 password: pass
         ]
 
-        println "para obtener el token de acceso el body es"+body
 
         def result = restService.postResource("/oauth/", body)
 
         if (result.status == HttpServletResponse.SC_CREATED){
             accessToken = result.data.access_token
         }
-        println "El access token es"+accessToken
+
         accessToken
     }
 

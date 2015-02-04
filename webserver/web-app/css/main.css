@@ -1188,19 +1188,8 @@ color: #000;
     width:300px;
     background-color:#F3F3F3;
 }
-h2
-{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;
-    color:#EF8100;
-    font-weight:bold;
-}
-h2 .H2titulo{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:30px;
-    color:#EF8100;
-    font-weight:bold;
-}
+
+
 .etiqueta
 {
     border:0px solid red;
@@ -1567,22 +1556,16 @@ h2 .H2titulo{
     margin-top: -25px;*/
     padding:0px;
 }
-.listadoTitleSearch h2{
-    font-size:16px;
-}
 
-.listadoTitleSearch h2 span{
-    font-size: 15px;
-    font-weight:normal;
-    color:#666;
-}
+
+
 
 /***********************************************************************************************/
 
 #dataItemMain {
 
     width:950px;
-    min-height:300px;
+    min-height:650px;
     margin: 30px auto 0 auto;
 }
 
@@ -1801,9 +1784,9 @@ h2 .H2titulo{
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    background-color:#E88435;
-    background-image:-webkit-linear-gradient(top, #E88435, #E88435);
-    border:1px solid #E88435;
+    /*background-color:#E88435;
+    background-image:-webkit-linear-gradient(top, #E88435, #E88435);*/
+    border:1px solid #F1F1F1;
     width: 130px;
     height: 100px;
 }

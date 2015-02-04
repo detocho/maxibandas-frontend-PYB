@@ -9,17 +9,19 @@
 
     <div id="dataItemMain">
 
-        <h1>Listo termino de publicar que bien !!!!</h1>
+        <br>
 
         <div>
             <h2>Listo publicaste!!!</h2>
+            <br>
             <ul>
-                <li>id:${bandId}</li>
+                <li>numero de anuncio:${bandId}</li>
             </ul>
+            <br>
         </div>
         <g:form>
-            <g:submitButton name="submit" value="Siguiente"></g:submitButton>
-            <g:submitButton name="cancel" value="Cancelar"></g:submitButton>
+            <g:submitButton name="submit" class="btn-continue"  value="Ir a mi cuenta"></g:submitButton>
+            <g:submitButton name="submit" class="btn-continue"  value="Ver mi anuncio"></g:submitButton>
         </g:form>
 
     </div>

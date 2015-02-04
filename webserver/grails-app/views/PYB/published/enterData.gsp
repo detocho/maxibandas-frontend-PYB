@@ -8,10 +8,22 @@
 
 <main ng-controller="PYBController">
 
-    <h2><span class="H2titulo">»</span>Escribe las caracteristicas de tu banda</h2>
+
 
     <div id="dataItemMain">
+        <h2><span>»</span>Escribe las caracteristicas de tu banda</h2>
+
         <g:form name="published"  ng-submit="createBand()">
+
+
+
+            <div class="feature_item">
+                <div class="data_etiqueta">¿Como te llamas?</div>
+                <div class="data_value">
+                    <input ng-model="name" class="caja_registro big" size="50" maxlength="50" type="text" name="name_band" placeholder="Nombre de tu banda" required>
+                    <span class="error" ng-show="errorName">El nombre es requerido</span>
+                </div>
+            </div>
             <div class="feature_item">
 
                 <div class="data_etiqueta">¿Que musica tocas?</div>
@@ -26,13 +38,7 @@
                 </div>
             </div>
 
-            <div class="feature_item">
-                <div class="data_etiqueta">¿Como te llamas?</div>
-                <div class="data_value">
-                    <input ng-model="name" class="caja_registro big" size="50" maxlength="50" type="text" name="name_band" placeholder="Nombre de tu banda" required>
-                    <span class="error" ng-show="errorName">El nombre es requerido</span>
-                </div>
-            </div>
+
 
             <div class="feature_item">
                 <div class="data_etiqueta">¿Cuanto cobras?</div>
@@ -46,6 +52,23 @@
                 </div>
             </div>
 
+            <div class="feature_item">
+                <div class="data_etiqueta">¿En que eventos tocas?</div>
+                <div class="data_value">
+                    <div class="gridFeatures">
+                        <ul>
+                            <span ng-repeat="event in socialEventsData" >
+                                <li><input type="checkbox" name="social_event" value="{{event.categoryId}}" /> {{event.name}}</li>
+                            </span>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
             <div class="feature_item" >
                 <div class="data_etiqueta">¿De donde eres?</div>
                 <div class="data_value">
@@ -53,9 +76,9 @@
                     <span class="error" ng-show="errorZipcode">El zip es requerida</span>
                     <div> {{zipcodeError}} </div>
                     <div ng-show="isValidZipcode">
-                        <div>{{zipcodeData.zipcode}}</div>
-                        <div>{{zipcodeData.parent_location[1].name}}</div>
-                        <div>{{zipcodeData.parent_location[0].name}}</div>
+
+                        <div class="caja_registro big">{{zipcodeData.parent_location[1].name}}</div>
+                        <div class="caja_registro big">{{zipcodeData.parent_location[0].name}}</div>
                         <div>
                             <select ng-model="locationId" class="caja_seleccion big" name="locationId" required>
                                 <option value="">Selecciona una colonia</option>
@@ -88,38 +111,8 @@
                 </div>
             </div>
 
-            <div class="feature_item">
-                <div class="data_etiqueta">¿En que eventos tocas?</div>
-                <div class="data_value">
-                    <div class="gridFeatures">
-                        <ul>
-                    <span ng-repeat="event in socialEventsData" >
-                        <li><input type="checkbox" name="social_event" value="{{event.categoryId}}" /> {{event.name}}</li>
-                    </span>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="feature_item">
-                <div class="data_etiqueta">¿Como te contactamos?</div>
-                <div class="data_value">
-                    <input ng-model="email" name="email" type="email" id="id_email" class="caja_registro big" placeholder="Email" required />
-                    <span class="error" ng-show="errorEmail">El email es requerido</span>
 
 
-
-                </div>
-            </div>
-
-            <div class="feature_item">
-                <div class="data_value">
-                    <input ng-model="phones" name="telefonos" type="text" id="id_telefonos" class="caja_registro big" placeholder="Telefonos" required />
-                    <div class="reg_ejemplo"> Ej: (55)1234-5555, (55)5555-4444</div>
-                    <span class="error" ng-show="errorPhones">El telefono es requerido</span>
-                </div>
-            </div>
 
             <div class="feature_item">
                 <div class="data_etiqueta">Muestranos un poco de tu talento</div>
@@ -164,10 +157,33 @@
                 </div>
             </div>
 
+
+
+            <div class="feature_item">
+                <div class="data_etiqueta">¿Como te contactamos?</div>
+                <div class="data_value">
+                    <input ng-model="email" name="email" type="email" id="id_email" class="caja_registro big" placeholder="Email" required />
+                    <span class="error" ng-show="errorEmail">El email es requerido</span>
+
+
+
+                </div>
+            </div>
+
+            <div class="feature_item">
+                <div class="data_value">
+                    <input ng-model="phones" name="telefonos" type="text" id="id_telefonos" class="caja_registro big" placeholder="Telefonos" required />
+                    <div class="reg_ejemplo"> Ej: (55)1234-5555, (55)5555-4444</div>
+                    <span class="error" ng-show="errorPhones">El telefono es requerido</span>
+                </div>
+            </div>
+
             <div class="feature_item">
                 <div class="data_etiqueta"></div>
                 <div class="data_value">
+                    <g:submitButton name="cancel" class="btn-continue" value="Cancelar"></g:submitButton>
                     <g:submitButton id="btnContinuar" class="btn-continue" name="submit"  value="Siguiente"></g:submitButton>
+
 
                 </div>
             </div>
@@ -175,7 +191,7 @@
 
 
 
-            <g:submitButton name="cancel" value="Cancelar"></g:submitButton>
+
 
         </g:form>
     </div>

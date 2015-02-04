@@ -15,8 +15,11 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="apple-mobile-web-app-status-bar-style" content="brown">
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
+
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'mb.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
+
+
     <g:layoutHead/>
     <r:layoutResources />
 </head>
@@ -43,5 +46,7 @@
 </div>
 
 <r:layoutResources />
+
+
 </body>
 </html>
