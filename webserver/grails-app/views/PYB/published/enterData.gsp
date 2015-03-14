@@ -35,7 +35,7 @@
 
                 <div class="form-group">
                     <label>¿Cuanto cobras por evento?</label>
-                    <input ng-model="price" class="form-control  caja_registro big" type="text" size="10" maxlength="" name="price"  required >
+                    <input ng-model="price" class="form-control  caja_registro big" only-digits type="text" size="10" maxlength="" name="price"  required >
                     <span class="error" ng-show="errorPrice">El precio es requerido</span>
                     <div class="data_value">
                         <input  type="radio" ng-model="payForm" name="PayForm" value="contado" checked /> Variable
@@ -82,7 +82,7 @@
                         <span ng-repeat="state in stateEventsData">
                             <lablel class="checkbox">
                                 <li><input type="checkbox" name="locations_event" value="{{state.locationId}}" ng-checked="all_locations || (state.locationId == zipcodeData.parent_location[1].location_id)" />
-                                {{state.name}}-{{state.locationId == zipcodeData.parent_location[1].location_id}}</li>
+                                {{state.name}}</li>
                             </lablel>
                         </span>
                     </ul>
@@ -107,20 +107,30 @@
                 <div class="form-group">
                     <label>Fotos:</label>
                     <div class="array_pictures">
-                        <input class="custom-input-file" type="file" ng-file-select="onFileSelect($files,0)">
+
+                        <div class="fileUpload btn_foto">
+                        <span>Foto 1</span>
+                        <input class="upload" type="file" ng-file-select="onFileSelect($files,0)">
                         <img ng-show="urlPic[0] != null" ng-src="{{urlPic[0]}}" class="thumb">
+                        </div>
 
-
-                        <input class="custom-input-file" type="file" ng-file-select="onFileSelect($files,1)">
+                        <div class="fileUpload btn_foto">
+                        <span>Foto 2</span>
+                        <input class="upload" type="file" ng-file-select="onFileSelect($files,1)">
                         <img ng-show="urlPic[1] != null" ng-src="{{urlPic[1]}}" class="thumb">
+                        </div>
 
-
-                        <input class="custom-input-file" type="file" ng-file-select="onFileSelect($files,2)">
+                        <div class="fileUpload btn_foto">
+                        <span>Foto 3</span>
+                        <input class="upload" type="file" ng-file-select="onFileSelect($files,2)">
                         <img ng-show="urlPic[2] != null" ng-src="{{urlPic[2]}}" class="thumb">
+                        </div>
 
-
-                        <input class="custom-input-file" type="file" ng-file-select="onFileSelect($files,3)">
+                        <div class="fileUpload btn_foto">
+                        <span>Foto 4</span>
+                        <input class="upload" type="file" ng-file-select="onFileSelect($files,3)">
                         <img ng-show="urlPic[3] != null" ng-src="{{urlPic[3]}}" class="thumb">
+                        </div>
                     </div>
                 </div>
 

@@ -137,14 +137,39 @@ textarea {
 
 }
 
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    width: 130px;
+    height: 100px;
+    border:1px solid #EEE;
+    color:#FFF;
+    border-bottom-left-radius:2px;
+    border-bottom-right-radius:2px;
+    border-top-left-radius:2px;
+    border-top-right-radius:2px;
+}
+
 
 
 .btn_foto
 {
-    background-color:#E88435;
-    background-image:-webkit-linear-gradient(top, #E88435, #E88435);
-    border:1px solid #E88435;
-    color:#FFF;
+    background-color:#EEE;
+    background-image:url('../images/pic_upload.png');
+    border:1px solid #EEE;
+    color:#CCC;
     border-bottom-left-radius:2px;
     border-bottom-right-radius:2px;
     border-top-left-radius:2px;
@@ -165,7 +190,7 @@ textarea {
     display:inline-block;
     position:relative;
     width: 130px;
-    height: 100px;
+    height: 130px;
 }
 
 input[type='file'] {
