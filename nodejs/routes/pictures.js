@@ -3,26 +3,26 @@ exports.post = function (request, response){
     var out;
 
     out = {
-        "id": Math.floor((Math.random() * 10) + 1),
+        "id": 4,
         "pictures": [{
             "size": "origin",
-            "url": "http://api.maxibanda.com.mx/pictures/uploads/2014/11/MB1-origin.jpeg",
+            "url": "http://api.maxibanda.com.mx/pictures/uploads/2015/2/MB4-origin.jpeg",
             "secure_url": ""
         }, {
             "size": "200X160",
-            "url": "http://api.maxibanda.com.mx/pictures/uploads/2014/11/MB1-200X160.jpeg",
+            "url": "http://api.maxibanda.com.mx/pictures/uploads/2015/2/MB4-200X160.jpeg",
             "secure_url": ""
         }, {
             "size": "800X600",
-            "url": "http://api.maxibanda.com.mx/pictures/uploads/2014/11/MB1-800X600.jpeg",
+            "url": "http://api.maxibanda.com.mx/pictures/uploads/2015/2/MB4-800X600.jpeg",
             "secure_url": ""
         }, {
             "size": "100X75",
-            "url": "http://api.maxibanda.com.mx/pictures/uploads/2014/11/MB1-100X75.jpeg",
+            "url": "http://api.maxibanda.com.mx/pictures/uploads/2015/2/MB4-100X75.jpeg",
             "secure_url": ""
         }, {
             "size": "60X60",
-            "url": "http://api.maxibanda.com.mx/pictures/uploads/2014/11/MB1-60X60.jpeg",
+            "url": "http://api.maxibanda.com.mx/pictures/uploads/2015/2/MB4-60X60.jpeg",
             "secure_url": ""
         }]
     };

@@ -16,8 +16,16 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="brown">
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
 
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="${resource(dir:'css', file:'bootstrap.min.css')}" type="text/css">
+
+    <!-- Optional theme -->
+
+    <link rel="stylesheet" href="${resource(dir:'css', file:'bootstrap-them.min.css')}" type="text/css">
+
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'mb.css')}" type="text/css">
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
+    <!-- <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css"> -->
 
 
     <g:layoutHead/>
@@ -25,24 +33,19 @@
 </head>
 
 <body ng-app="PYB" >
-<div class="mb">
-    <header class="slide">
-        <a href="/" > <h1 class="logo"> Tu banda está aquí </h1> </a>
-    </header>
-    <div class="content slide">
-        <g:layoutBody/>
-    </div>
-    <footer>
-        <div class="foo_up">
 
-            <p class="copyright">
-                <b>Todos los derechos reservados</b>
-                <br>
-                maxibandas.com.mx.
-            </p>
 
+<header class="slide">
+    <nav class="navbar navbar-default">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" > <img alt="Brand" src="${resource(dir:'images', file:'mb.png')}"> </a>
         </div>
-    </footer>
+    </nav>
+</header>
+
+<div class="container">
+    <g:layoutBody/>
 </div>
 
 <r:layoutResources />

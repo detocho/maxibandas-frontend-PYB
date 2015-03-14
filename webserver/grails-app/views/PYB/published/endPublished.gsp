@@ -5,26 +5,36 @@
     <title>maxibanda.com.mx</title>
 </head>
 <body>
-<main>
 
-    <div id="dataItemMain">
+<div  class="panel panel-default">
 
-        <br>
+    <div class="panel-heading">
+        <h3 class="panel-title">Publica tu banda [Felicidades]</h3>
+    </div>
+    <div class="panel-body">
 
-        <div>
-            <h2>Listo publicaste!!!</h2>
-            <br>
-            <ul>
-                <li>numero de anuncio:${bandId}</li>
-            </ul>
-            <br>
+        <div class="jumbotron">
+
+            <div class="alert alert-success" role="alert">
+                <h1><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Felicidades ya publicaste!!!</h1>
+            </div>
+
+            <p>Número de anuncio:${bandId}</p>
+
+
+            <g:form>
+                <g:submitButton name="submit" class="btn btn-primary"   value="Ir a mi cuenta"></g:submitButton>
+                <g:submitButton name="submit" class="btn btn-primary"  value="Ver mi anuncio"></g:submitButton>
+            </g:form>
+
         </div>
-        <g:form>
-            <g:submitButton name="submit" class="btn-continue"  value="Ir a mi cuenta"></g:submitButton>
-            <g:submitButton name="submit" class="btn-continue"  value="Ver mi anuncio"></g:submitButton>
-        </g:form>
+
+
 
     </div>
-</main>
+</div>
+
+
+
 </body>
 </html>

@@ -107,7 +107,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
             var file = $files[i];
             console.log("EL file a cargar es"+file);
             $scope.upload = $upload.upload({
-                url: 'http://api.maxibanda.com.mx/pictures/', //upload.php script, node.js route, or servlet url
+                url: 'http://localhost:8888/pictures/', //upload.php script, node.js route, or servlet url
                 method: 'POST',
                 //headers: {'header-key': 'header-value'},
                 //withCredentials: true,
@@ -123,7 +123,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
             }).success(function (data, status, headers, config) {
                 // file is uploaded successfully
                 console.log(data);
-                $scope.urlPic[indexPicture] = data.pictures[3].url;
+                $scope.urlPic[indexPicture] = data.pictures[1].url;
                 // aqui procesamos el array de pictures, mas bien el josn
                 //TODO debemos revisar como hacemos para cuando quieren modificar una fotografia antes de subirla
                 $scope.picturesJson.push({
