@@ -110,7 +110,8 @@
 
                         <div class="fileUpload btn_foto">
                         <span>Foto 1</span>
-                        <input class="upload" type="file" ng-file-select="onFileSelect($files,0)">
+                        <input id="picture_0" class="upload"  type="file" ng-file-select="onFileSelect($files,0)" multiple accept="image/*" data-multiple="true">
+                        <img ng-show="loadingPicture(0)" ng-src="http://localhost:8080/published/loading_picture.gif" class="thumb">
                         <img ng-show="urlPic[0] != null" ng-src="{{urlPic[0]}}" class="thumb">
                         </div>
 

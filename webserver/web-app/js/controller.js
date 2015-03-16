@@ -26,6 +26,8 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
     $scope.errorVideo       = false;
     $scope.errorZipcode     = false;
 
+    //para las pictures
+
     $scope.stateEvents = function(){
         var params = {};
         States.stateEvents(params, function (data){
@@ -103,6 +105,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
 
     $scope.onFileSelect = function($files, indexPicture) {
         //$files: an array of files selected, each file has name, size, and type.
+
         for (var i = 0; i < $files.length; i++) {
             var file = $files[i];
             console.log("EL file a cargar es"+file);
@@ -124,6 +127,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
                 // file is uploaded successfully
                 console.log(data);
                 $scope.urlPic[indexPicture] = data.pictures[1].url;
+                //$scope.urlPic[i] = data.pictures[1].url;
                 // aqui procesamos el array de pictures, mas bien el josn
                 //TODO debemos revisar como hacemos para cuando quieren modificar una fotografia antes de subirla
                 $scope.picturesJson.push({

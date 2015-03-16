@@ -184,14 +184,34 @@ textarea {
     margin-left:20px;
     min-width:54px;
     outline:0;
-    padding:0 8px;
+    padding:0px;
     text-align:center;
     /*white-space:nowrap;*/
     display:inline-block;
     position:relative;
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
 }
+
+.fileUpload .thumb{
+
+    height: 150px;
+    width: 150px;
+    min-width:54px;
+
+}
+
+.fileUpload .thumb_loading{
+
+    height: 150px;
+    width: 150px;
+    min-width:54px;
+    background-image:url('../loading_picture.gif');
+
+}
+
+
+
 
 input[type='file'] {
     color: transparent;
