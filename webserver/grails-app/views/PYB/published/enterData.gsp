@@ -81,7 +81,7 @@
                         <lablel class="checkbox"><li><input ng-model="all_locations" type="checkbox" name="locations_event" /> Todos</li></lablel>
                         <span ng-repeat="state in stateEventsData">
                             <lablel class="checkbox">
-                                <li><input type="checkbox" name="locations_event" value="{{state.locationId}}" ng-checked="all_locations || (state.locationId == zipcodeData.parent_location[1].location_id)" />
+                                <li><input type="checkbox" name="locations_event" value="{{state.locationId}}" ng-checked="all_locations || (state.locationId == zipcodeData.parent_location[1].location_id) || isAdjacentState(zipcodeData.parent_location[1].adjacent_states,state.locationId)" />
                                 {{state.name}}</li>
                             </lablel>
                         </span>

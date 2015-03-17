@@ -26,131 +26,163 @@ exports.get = function (request, response){
             "children_locations": [{
                 "locationId": "EST1",
                 "name": "Aguascalientes",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST2",
                 "name": "Baja California",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST3",
                 "name": "Baja California Sur",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST4",
                 "name": "Campeche",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST5",
                 "name": "Chiapas",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST6",
                 "name": "Chihuahua",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST7",
                 "name": "Coahuila de Zaragoza",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST8",
                 "name": "Colima",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST15",
                 "name": "Distrito Federal",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST9",
                 "name": "Durango",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST10",
                 "name": "Estado de México",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST11",
                 "name": "Guanajuato",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST12",
                 "name": "Guerrero",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST13",
                 "name": "Hidalgo",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST14",
                 "name": "Jalisco",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST16",
                 "name": "Michoacán de Ocampo",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST17",
                 "name": "Morelos",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST18",
                 "name": "Nayarit",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST19",
                 "name": "Nuevo León",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST20",
                 "name": "Oaxaca",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST21",
                 "name": "Puebla",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST22",
                 "name": "Querétaro",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST23",
                 "name": "Quintana Roo",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST24",
                 "name": "San Luis Potosí",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST25",
                 "name": "Sinaloa",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST26",
                 "name": "Sonora",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST27",
                 "name": "Tabasco",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST28",
                 "name": "Tamaulipas",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST29",
                 "name": "Tlaxcala",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST30",
                 "name": "Veracruz de Ignacio de la Llave",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST31",
                 "name": "Yucatán",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }, {
                 "locationId": "EST32",
                 "name": "Zacatecas",
-                "level": "state"
+                "level": "state",
+                "adjacent_states":[]
             }]
         };
 

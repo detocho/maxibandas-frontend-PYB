@@ -26,7 +26,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
     $scope.errorVideo       = false;
     $scope.errorZipcode     = false;
 
-    //para las pictures
+    $scope.adjacentStates = ["EST22","EST16","EST13","EST17","EST21","EST29","EST14"];
 
     $scope.stateEvents = function(){
         var params = {};
@@ -101,6 +101,19 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
         }
     };
 
+    $scope.isAdjacentState = function (arrayStatesAdjacent, currentState){
+
+        console.log("Entrando a la funcion de colindancia con "+currentState);
+        var searchState = arrayStatesAdjacent.indexOf(currentState);
+        if(searchState > 0){
+            console.log("si encontro colindacias eureka!!!");
+            return true;
+        }else{
+            console.log("no encontro colindacias");
+            return false;
+        }
+    };
+
     // ****************
 
     $scope.onFileSelect = function($files, indexPicture) {
@@ -109,6 +122,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
         for (var i = 0; i < $files.length; i++) {
             var file = $files[i];
             console.log("EL file a cargar es"+file);
+            $scope.urlPic[indexPicture] = 'http://localhost:8080/published/loading_picture.gif';
             $scope.upload = $upload.upload({
                 url: 'http://localhost:8888/pictures/', //upload.php script, node.js route, or servlet url
                 method: 'POST',
