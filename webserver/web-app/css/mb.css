@@ -20,6 +20,8 @@ header h1 {
     background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
 }
 
+
+
 .logo{
     background-image: url('../images/mb.png');
     background-repeat: no-repeat;
@@ -301,5 +303,12 @@ footer {
         background-image: url('../images/mb_min.png');
         width: 65px;
         margin-top:5px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-right {
+        float: right !important;
+        margin-right: 20px;
     }
 }

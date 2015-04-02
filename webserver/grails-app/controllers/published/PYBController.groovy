@@ -1,8 +1,11 @@
 package published
 
+import  session.UserSession
+
 class PYBController {
 
     def pybService = new PYBService()
+    def userSession =  new UserSession()
 
     //println "ya entro al controller"
 
@@ -28,10 +31,11 @@ class PYBController {
 
         enterData {
 
-            //TODO debemos revisar el tema de la uthenticación aqui
+
             [model: [flow.groups, flow.nameBand, flow.nameTest]]
 
             on('submit'){
+
                 flow.nameTest = "Entro a la prueba"
 
                 println "hola aqui estoy"
@@ -52,15 +56,34 @@ class PYBController {
                 flow.serviceLocations   = params.locations_event
 
 
-            }.to 'stepPassword'
+            }.to 'stepValidateSession'
             on('cancel').to 'errorPublished'
+        }
+
+        stepValidateSession{
+            action{
+                if(session["user"]){
+                    if(userSession.validSession(session["user"])){
+                        return success()
+                    }else{
+                        return error()
+                    }
+                }else{
+                    return error()
+                }
+
+            }
+            on('success').to 'processData'
+            on('error').to 'stepPassword'
         }
 
         stepPassword{
            //TODO aqui debemos ver el algoritmo para obtener el password del user siempre y cuando no este logueado
             //TODO revisar el tema del login
 
-            on('submit').to 'processData'
+            on('submit'){
+                session["user"]  = userSession.createSession("davidpaz@maxibandas.com.mx","algo")
+            }.to 'processData'
             on('error').to 'errorPublished'
         }
 
@@ -85,7 +108,7 @@ class PYBController {
                 ]
 
                 def parameters = [
-                        //access_token    : '', // TODO va de la mano con el tema del login
+                        access_token    : session['user'].token,
                         phone           : flow.phones,
                         email           : flow.email,
                         pass            : params.pass
@@ -142,6 +165,11 @@ class PYBController {
 
         }
 
+    }
+
+    def endSession (){
+        session["user"] = userSession.endSession(session["user"])
+        redirect( action:"published")
     }
 
 

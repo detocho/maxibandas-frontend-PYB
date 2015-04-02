@@ -26,7 +26,6 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
     $scope.errorVideo       = false;
     $scope.errorZipcode     = false;
 
-    $scope.adjacentStates = ["EST22","EST16","EST13","EST17","EST21","EST29","EST14"];
 
     $scope.stateEvents = function(){
         var params = {};
@@ -103,13 +102,10 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
 
     $scope.isAdjacentState = function (arrayStatesAdjacent, currentState){
 
-        console.log("Entrando a la funcion de colindancia con "+currentState);
         var searchState = arrayStatesAdjacent.indexOf(currentState);
         if(searchState > 0){
-            console.log("si encontro colindacias eureka!!!");
             return true;
         }else{
-            console.log("no encontro colindacias");
             return false;
         }
     };
@@ -269,4 +265,34 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
 
 
 
+}
+
+function PasswordController ($scope, $http, $upload, Locations, Bands, Categories,States){
+
+    //errors control
+    $scope.errorPass        = false;
+
+    $scope.createAccount = function (){
+
+
+        console.log('Entro a verificar si el campo de password es null'+$scope.password);
+        $scope.errorPass        = false;
+
+        var publishedBand = true;
+
+        if(!$scope.password){
+            $scope.errorPass = true;
+            publishedBand = false;
+
+        }
+
+
+        if (publishedBand){
+            alert ('Listo vamos al siguiente paso');
+        }
+
+        return false;
+
+
+    }
 }

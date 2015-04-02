@@ -41,6 +41,12 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/" > <img alt="Brand" src="${resource(dir:'images', file:'mb.png')}"> </a>
         </div>
+        <p class="navbar-text navbar-right">
+            <g:if test="${session['user']}">
+                ${session['user'].name}
+            </g:if>
+            <a href="/published/PYB/endSession" class="navbar-link">Salir</a>
+        </p>
     </nav>
 </header>
 

@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <label>¿Como se llama tu banda?</label>
                     <input ng-model="name" class="form-control caja_registro big" size="50" maxlength="50" type="text" name="name_band" placeholder="Nombre de tu banda" required>
-                    <span class="error" ng-show="errorName">El nombre es requerido</span>
+                    <span class="error" ng-show="errorPass">El nombre es requerido</span>
                 </div>
 
                 <div class="form-group">
@@ -143,6 +143,7 @@
                 </div>
             </div>
         </div>
+        <g:if test="${session['user'] == null}">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">[Como te contactamos]</h3>
@@ -161,14 +162,14 @@
 
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <g:submitButton name="cancel" class="btn btn-default" value="Cancelar"></g:submitButton>
-                    <g:submitButton id="btnContinuar" class="btn btn-primary" name="submit"  value="Publica tu banda ahora"></g:submitButton>
-                </div>
-                <input type="hidden" name="pictures" value="{{picturesJson}}"/>
             </div>
         </div>
+       </g:if>
+        <div class="form-group">
+            <g:submitButton name="cancel" class="btn btn-default" value="Cancelar"></g:submitButton>
+            <g:submitButton id="btnContinuar" class="btn btn-primary" name="submit"  value="Publica tu banda ahora"></g:submitButton>
+        </div>
+        <input type="hidden" name="pictures" value="{{picturesJson}}"/>
 
     </g:form>
 </div>
