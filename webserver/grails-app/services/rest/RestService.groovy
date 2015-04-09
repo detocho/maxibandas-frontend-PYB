@@ -37,6 +37,7 @@ class RestService {
     def restClient  = new RESTClient(urlBase)
 
 
+
     def getResource(def resource, def queryParams){
 
         Map result = [:]
@@ -45,21 +46,18 @@ class RestService {
 
         try {
 
-            def resp = restClient.get(path:resource, query:queryParams)
+            def resp = restClient.get(path:resource, query:queryParams, requestContentType: 'application/json')
 
-            if (resp.status == HttpServletResponse.SC_OK) {
+            result.status   = resp.status
+            result.data     = resp.data
 
-                result.status   = resp.status
-                result.data     = resp.data
-
-            }
-            else{
-                result.status   = HttpServletResponse.SC_NOT_FOUND
-                result.data     = []
-            }
-        } catch (Exception e){
-            result.status   = HttpServletResponse.SC_NOT_FOUND
-            result.data     = []
+        } catch (HttpResponseException e){
+            def dataMap = [
+                    error:e.response.responseData.error,
+                    message:e.response.responseData.message
+            ]
+            result.status   = e.response.responseData.status
+            result.data     = dataMap
         }
 
         result
@@ -73,21 +71,20 @@ class RestService {
 
         try {
 
-            def resp = restClient.get(path: resource)
+            def resp = restClient.get(path: resource, requestContentType: 'application/json')
 
-            if (resp.status == HttpServletResponse.SC_OK) {
 
-                result.status   = resp.status
-                result.data     = resp.data
+            result.status   = resp.status
+            result.data     = resp.data
 
-            }
-            else{
-                result.status   = HttpServletResponse.SC_NOT_FOUND
-                result.data     = []
-            }
-        } catch (Exception e){
-            result.status   = HttpServletResponse.SC_NOT_FOUND
-            result.data     = []
+
+        } catch (HttpResponseException e){
+            def dataMap = [
+                    error:e.response.responseData.error,
+                    message:e.response.responseData.message
+            ]
+            result.status   = e.response.responseData.status
+            result.data     = dataMap
         }
 
 
@@ -108,23 +105,20 @@ class RestService {
                     body: body,
                     requestContentType: 'application/json')
 
-            if (resp.status == HttpServletResponse.SC_CREATED || resp.status == HttpServletResponse.SC_OK) {
 
-                result.status = resp.status
-                result.data = resp.data
-
-            }else {
-
-                result.status   = HttpServletResponse.SC_NOT_FOUND
-                result.data     = []
-            }
+            result.status = resp.status
+            result.data = resp.data
 
 
-        }catch(Exception e){
 
-            result.status   = HttpServletResponse.SC_NOT_FOUND
-            result.data     = []
 
+        }catch (HttpResponseException e){
+            def dataMap = [
+                    error:e.response.responseData.error,
+                    message:e.response.responseData.message
+            ]
+            result.status   = e.response.responseData.status
+            result.data     = dataMap
         }
 
         result
@@ -142,23 +136,19 @@ class RestService {
                     body: body,
                     requestContentType: 'application/json')
 
-            if (resp.status == HttpServletResponse.SC_CREATED || resp.status == HttpServletResponse.SC_OK) {
-
-                result.status = resp.status
-                result.data = resp.data
-
-            }else {
-
-                result.status   = HttpServletResponse.SC_NOT_FOUND
-                result.data     = []
-            }
+            result.status = resp.status
+            result.data = resp.data
 
 
-        }catch(Exception e){
 
-            result.status   = HttpServletResponse.SC_NOT_FOUND
-            result.data     = []
 
+        }catch (HttpResponseException e){
+            def dataMap = [
+                    error:e.response.responseData.error,
+                    message:e.response.responseData.message
+            ]
+            result.status   = e.response.responseData.status
+            result.data     = dataMap
         }
 
         result
@@ -176,23 +166,19 @@ class RestService {
                     body : body,
                     requestContentType : 'application/json' )
 
-            if (resp.status == HttpServletResponse.SC_CREATED || resp.status == HttpServletResponse.SC_OK) {
 
-                result.status = resp.status
-                result.data = resp.data
-
-            }else {
-
-                result.status   = HttpServletResponse.SC_NOT_FOUND
-                result.data     = []
-            }
+            result.status = resp.status
+            result.data = resp.data
 
 
-        }catch(Exception e){
 
-            result.status   = HttpServletResponse.SC_NOT_FOUND
-            result.data     = []
-
+        }catch (HttpResponseException e){
+            def dataMap = [
+                    error:e.response.responseData.error,
+                    message:e.response.responseData.message
+            ]
+            result.status   = e.response.responseData.status
+            result.data     = dataMap
         }
 
         result

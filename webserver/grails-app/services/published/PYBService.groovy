@@ -48,41 +48,10 @@ class PYBService {
 
 
         def accessToken = params.access_token
-        def email       = params.email
-        def pass        = params.pass
-        def phone       = params.phone
 
         def locationId  = jsonPrepublished.location_id
-        def origin      = 'PYB'
 
-        def published   = false
         def bandId
-
-
-
-        if (accessToken){
-
-           if(validAccessToken(accessToken)){
-               published = true
-           }
-
-        } else {
-
-
-            def userId = searchUser(params.email)
-            if(userId){
-                userId = userId
-            }else{
-
-                userId = createUser(email, phone, pass, locationId, origin)
-            }
-
-        }
-
-        if (!published) {
-            accessToken = getAccessToken(email, pass)
-        }
-
 
         if (accessToken){
 
@@ -145,11 +114,27 @@ class PYBService {
 
     }
 
-    def createUser(def email, def phone, def pass, def locationId, def origin){
+    def getUser(def userId){
+        def result = restService.getResource("/users/"+userId)
+        result
+    }
+
+    def getUser(def userId, def accessToken){
+
+        def params = [
+                access_token:accessToken
+        ]
+
+        def result = restService.getResource("/users/"+userId, params)
+
+        result
+    }
+
+    def createUser(def email, def phone, def pass, def locationId, def origin, def name){
 
         def userId
         def body = [
-
+                name:name,
                 email:email,
                 phone:phone,
                 password:pass,
@@ -158,6 +143,7 @@ class PYBService {
         ]
 
         def result = restService.postResource("/users/", body)
+
 
         if (result.status == HttpServletResponse.SC_CREATED){
             userId = result.data.id
@@ -187,7 +173,6 @@ class PYBService {
 
     def getAccessToken (def email, def pass){
 
-        def accessToken
 
         def body = [
                 email:email,
@@ -197,17 +182,8 @@ class PYBService {
 
         def result = restService.postResource("/oauth/", body)
 
-        if (result.status == HttpServletResponse.SC_CREATED){
-            accessToken = result.data.access_token
-        }
-
-        accessToken
+        result
     }
-
-    def validAccessToken (def accessToken){
-        true
-    }
-
 
 
 }

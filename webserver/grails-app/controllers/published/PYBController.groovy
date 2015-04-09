@@ -7,21 +7,24 @@ class PYBController {
     def pybService = new PYBService()
     def userSession =  new UserSession()
 
-    //println "ya entro al controller"
-
 
     def publishedFlow = {
 
         begin{
             action{
 
-                //TODO aqui definimos si esta logueado
+                flow.errorSession   = ""
+                flow.origin         = "PYB"
+                flow.groups         = pybService.getGroups()
 
-                flow.nameBand = 'los biscochos'
-                flow.groups  = pybService.getGroups()
-                flow.nameTest = 'david'
                 if(!flow.groups){
                     return error()
+                }
+
+                if(session['user']){
+                    if(!userSession.validSession(session['user'])){
+                        userSession.endSession(session['user'])
+                    }
                 }
 
             }
@@ -35,11 +38,6 @@ class PYBController {
             [model: [flow.groups, flow.nameBand, flow.nameTest]]
 
             on('submit'){
-
-                flow.nameTest = "Entro a la prueba"
-
-                println "hola aqui estoy"
-                println "los parametros con "+params
 
                 flow.nameBand           = params.name_band
                 flow.phones             = params.telefonos
@@ -78,13 +76,29 @@ class PYBController {
         }
 
         stepPassword{
-           //TODO aqui debemos ver el algoritmo para obtener el password del user siempre y cuando no este logueado
-            //TODO revisar el tema del login
 
+            [model: [flow.errorSession]]
             on('submit'){
-                session["user"]  = userSession.createSession("davidpaz@maxibandas.com.mx","algo")
-            }.to 'processData'
+                flow.pass = params.password
+
+            }.to 'stepValidatePassword'
             on('error').to 'errorPublished'
+        }
+
+        stepValidatePassword{
+            action{
+
+                session["user"]  = userSession.createSession(flow.email,flow.pass, flow.locationId, flow.phones, flow.origin,  flow.nameBand)
+                if (session["user"].error != ''){
+                    flow.errorSession = session["user"].error
+                    session["user"]  = null
+                    return invalid()
+                }else{
+                    return success()
+                }
+            }
+            on('success').to 'processData'
+            on('invalid').to 'stepPassword'
         }
 
         processData{
@@ -111,12 +125,12 @@ class PYBController {
                         access_token    : session['user'].token,
                         phone           : flow.phones,
                         email           : flow.email,
-                        pass            : params.pass
+                        pass            : flow.pass
                 ]
 
 
                 // vamos a imprimir la data que enviarmeos al aservicio
-
+                /*
                 println "------ los parametros que enviaremos son :"
                 println "access_token = "+parameters.access_token
                 println "email = "+parameters.email
@@ -137,6 +151,7 @@ class PYBController {
                 println "description  = "+publishedMap.description
                 println "type_item = "+publishedMap.type_item
                 println "attributes = "+publishedMap.attributes
+                */
 
 
                 def bandId = pybService.published(parameters, publishedMap)
@@ -172,47 +187,4 @@ class PYBController {
         redirect( action:"published")
     }
 
-
-
-/*
-    def index() {
-
-
-        def groups  = pybService.getGroups()
-
-
-        def model = [
-
-                "groups":groups
-        ]
-
-
-        render (view:'index', model:model)
-    }
-
-
-    def published(){
-        //llamamos al servicio
-        // procesamos la info en el servicio
-        //renderizamos el resultado o enviamos a mi cuenta
-
-
-        def bandId = pybService.published(params, request.JSON)
-        render bandId
-
-
-        //de aqui hacemos un request a la api de bands
-        // lo enviamos a la vista de felicitaciones y un boton de ver banda (revisar si llevara a mi cuenta)
-    }
-
-    def endPublished(){
-
-        def bandId = params.bandId
-        def model = [
-                "bandId":bandId
-        ]
-        render (view: 'published', model: model)
-    }
-
-    */
 }

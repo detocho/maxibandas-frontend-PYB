@@ -29,7 +29,7 @@ exports.get = function (request, response){
                     "location_id": "EST10",
                     "name": "Estado de México",
                     "level": "state",
-                    "adjacent_states":["EST22","EST16","EST12","EST17","EST15","EST21","EST29","EST13" ]
+                    "adjacent_locations":["EST22","EST16","EST12","EST17","EST15","EST21","EST29","EST13" ]
                 },
                 {
                     "location_id": "MX",

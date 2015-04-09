@@ -16,9 +16,17 @@
         <h2>Listo!! </h2>
         <h3>Ahora solo necesitamos que coloques tu password <br> si no tienes, crea uno </h3>
 
+        <% if(errorSession != ''){ %>
+
+        <div class="alert alert-danger" role="alert">
+            ${errorSession}
+        </div>
+
+       <% }
+            %>
+
         <g:form name="published"  ng-submit="createAccount()">
-            <input ng-model="password" pattern=".{6,}" class="caja_registro big" type="password" name="pass" placeholder="Escribe tu password" required/>
-            <span class="error" ng-show="errorName">El password es requerido</span>
+            <input ng-model="password" pattern=".{6,}" class="caja_registro big" type="password" name="password" placeholder="Escribe tu password" required/>
             <g:submitButton name="submit" class="btn btn-primary"  value="Siguiente"></g:submitButton>
             <g:submitButton name="cancel" class="btn btn-default"  value="Cancelar"></g:submitButton>
         </g:form>
@@ -37,7 +45,10 @@
 <script src="${resource(dir: 'js', file: 'app.js')}"></script>
 <script src="${resource(dir: 'js', file: 'controller.js')}"></script>
 <script src="${resource(dir: 'js', file: 'service.js')}"></script>
-
+<script >
+    var apiBaseUrl = "http://api.maxibanda.com.mx";
+    //var apiBaseUrl = "http://" + document.domain + "\\:8888"
+</script>
 
 
 </body>

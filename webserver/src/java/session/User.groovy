@@ -8,4 +8,5 @@ class User {
     def token
     def id
     def name
+    def error
 }

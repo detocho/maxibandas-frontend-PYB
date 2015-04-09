@@ -2,7 +2,7 @@
 
 function PYBController ($scope, $http, $upload, Locations, Bands, Categories,States){
 
-	$scope.zipcodeData      = '';
+    $scope.zipcodeData      = '';
     $scope.zipcodeValue     = '';
     $scope.zipcodeError     = '';
     $scope.cols             = '';
@@ -102,11 +102,13 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
 
     $scope.isAdjacentState = function (arrayStatesAdjacent, currentState){
 
-        var searchState = arrayStatesAdjacent.indexOf(currentState);
-        if(searchState > 0){
-            return true;
-        }else{
-            return false;
+        if(arrayStatesAdjacent) {
+            var searchState = arrayStatesAdjacent.indexOf(currentState);
+            if (searchState > 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
     };
 
@@ -120,7 +122,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
             console.log("EL file a cargar es"+file);
             $scope.urlPic[indexPicture] = 'http://localhost:8080/published/loading_picture.gif';
             $scope.upload = $upload.upload({
-                url: 'http://localhost:8888/pictures/', //upload.php script, node.js route, or servlet url
+                url: 'http://api.maxibanda.com.mx/pictures/', //upload.php script, node.js route, or servlet url
                 method: 'POST',
                 //headers: {'header-key': 'header-value'},
                 //withCredentials: true,
@@ -183,84 +185,7 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
         $scope.errorPhones      = false;
         $scope.errorZipcode     = false;
 
-        var publishedBand = true;
 
-        if(!$scope.categoryId){
-            $scope.errorCategory = true;
-            publishedBand = false;
-        }
-
-        if(!$scope.name){
-            $scope.errorName = true;
-            publishedBand = false;
-
-        }
-
-        if(!$scope.zipcodeValue){
-            $scope.errorZipcode = true;
-            publishedBand = false;
-        }
-
-        if(!$scope.price){
-            $scope.errorPrice = true;
-            publishedBand = false;
-        }
-
-        if(!$scope.locationId){
-            $scope.errorLocationId = true;
-            publishedBand = false;
-        }
-
-        if(!$scope.email){
-            $scope.errorEmail = true;
-            publishedBand = false;
-        }
-
-        if(!$scope.phones){
-            $scope.errorPhones = true;
-            publishedBand = false;
-        }
-
-
-
-        if (publishedBand){
-            alert ('Listo vamos a publicar la banda');
-        }
-
-        return false;
-
-        // esta es la funcion que hace el post de la banda *********
-        /*
-        var params = {
-
-        };
-
-        Bands.newband(params, function (data) {
-
-            console.log('la data del request de nueva banda es'+data[0]);
-            // aqui hacemos la redireccion
-            window.location="/published/endPublished/?bandId="+data[0];
-
-        }, function (error) {
-
-            console.log ('Error en la llamada a la creacion de la banda'+error);
-        });
-        */
-        // ***********************************
-        //TODO
-        /*
-         1.- generamos las validaciones para cada topico obligatorio
-         2.- generamos el model de datos para el item
-         3.- generamos un servicio con ajax para enviarle los datos ya preprocesados
-         4.- en el servicio
-            4.1.- Buscamos el user por el email
-            4.2.- obtenemos el id de usuario (si no esta lo creamos y enviamos un email de registro para que actualice su password)
-            4.3.- posteamos el item
-            4.4.- mandamos un email de activacion de item
-            4.5.- lo redirigimos logueado a su cuenta para administrar su anuncio y desde ahi le decimo que su anuncio esta listo para verlo
-            dale click aqui y lo mandamos a la vip del anuncio.
-            LISTO
-         */
     }
 
 
@@ -269,30 +194,4 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
 
 function PasswordController ($scope, $http, $upload, Locations, Bands, Categories,States){
 
-    //errors control
-    $scope.errorPass        = false;
-
-    $scope.createAccount = function (){
-
-
-        console.log('Entro a verificar si el campo de password es null'+$scope.password);
-        $scope.errorPass        = false;
-
-        var publishedBand = true;
-
-        if(!$scope.password){
-            $scope.errorPass = true;
-            publishedBand = false;
-
-        }
-
-
-        if (publishedBand){
-            alert ('Listo vamos al siguiente paso');
-        }
-
-        return false;
-
-
-    }
 }

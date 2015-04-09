@@ -81,7 +81,7 @@
                         <lablel class="checkbox"><li><input ng-model="all_locations" type="checkbox" name="locations_event" /> Todos</li></lablel>
                         <span ng-repeat="state in stateEventsData">
                             <lablel class="checkbox">
-                                <li><input type="checkbox" name="locations_event" value="{{state.locationId}}" ng-checked="all_locations || (state.locationId == zipcodeData.parent_location[1].location_id) || isAdjacentState(zipcodeData.parent_location[1].adjacent_states,state.locationId)" />
+                                <li><input type="checkbox" name="locations_event" value="{{state.locationId}}" ng-checked="all_locations || (state.locationId == zipcodeData.parent_location[1].location_id) || isAdjacentState(zipcodeData.parent_location[1].adjacent_locations,state.locationId)" />
                                 {{state.name}}</li>
                             </lablel>
                         </span>
@@ -186,8 +186,8 @@
 <script src="${resource(dir: 'js', file: 'controller.js')}"></script>
 <script src="${resource(dir: 'js', file: 'service.js')}"></script>
 <script >
-    //var apiBaseUrl = "http://api.maxibanda.com.mx";
-    var apiBaseUrl = "http://" + document.domain + "\\:8888"
+    var apiBaseUrl = "http://api.maxibanda.com.mx";
+   // var apiBaseUrl = "http://" + document.domain + "\\:8888"
 </script>
 </body>
 </html>

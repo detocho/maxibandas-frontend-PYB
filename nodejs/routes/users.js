@@ -5,7 +5,7 @@ exports.get = function (request, response){
 	
     json = {
         "id": userId,
-        "name": "",
+        "name": "USER_TEST_MOCK_GET",
         "location_id": "15",
         "registration_date": "Nov 9, 2014 1:45:11 PM",
         "date_last_update": "Nov 9, 2014 1:45:11 PM",
@@ -24,7 +24,7 @@ exports.post = function (request, response){
 
     json = {
         "id": userId,
-        "name": "",
+        "name": "USER_TEST_MOCK_POST",
         "location_id": "15",
         "registration_date": "Nov 9, 2014 1:45:11 PM",
         "date_last_update": "Nov 9, 2014 1:45:11 PM",

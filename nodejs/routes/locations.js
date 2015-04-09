@@ -23,6 +23,7 @@ exports.get = function (request, response){
             "name": "México",
             "level": "country",
             "parent_location": [],
+            "adjacent_locations":[],
             "children_locations": [{
                 "locationId": "EST1",
                 "name": "Aguascalientes",
@@ -142,7 +143,7 @@ exports.get = function (request, response){
                 "locationId": "EST24",
                 "name": "San Luis Potosí",
                 "level": "state",
-                "adjacent_states":[]
+                "adjacent_locations":[]
             }, {
                 "locationId": "EST25",
                 "name": "Sinaloa",
