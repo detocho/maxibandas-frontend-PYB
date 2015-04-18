@@ -5,7 +5,7 @@ var module = angular.module('PYBServices', ['ngResource']);
 
 
 module.factory('Locations',function ($resource){
-    var url = apiBaseUrl + "/locations/zipcodes/:action";
+    var url = apiBaseUrlLocations + "/locations/zipcodes/:action";
     return $resource(url, {}, {
         zipcode:{method:"GET"}
     });
@@ -20,7 +20,7 @@ module.factory('Bands', function ($resource){
 
 // TODO generar un servicio para las categorias
 module.factory('Categories', function($resource){
-    var url = apiBaseUrl + "/categories/MX2";
+    var url = apiBaseUrlCategories + "/categories/MX2";
     return $resource(url,{},{
        socialEvents:{method:"GET"}
     });
@@ -28,7 +28,7 @@ module.factory('Categories', function($resource){
 });
 // TODO generar un servicio para los estados
 module.factory('States', function($resource){
-    var url = apiBaseUrl + "/locations/MX";
+    var url = apiBaseUrlLocations + "/locations/MX";
     return $resource(url, {},{
        stateEvents:{method:"GET"}
     });

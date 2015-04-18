@@ -30,12 +30,44 @@ class RestService {
     static transactional = true
 
     def grailsApplication = new DefaultGrailsApplication()
-    def urlBase = grailsApplication.config.domainMainUsers
+
+    def urlBaseUsers        = grailsApplication.config.domainMainUsers
+    def urlBaseOauth        = grailsApplication.config.domainMainOauth
+    def urlBaseCategories   = grailsApplication.config.domainMainCategories
+    def urlBaseLocations    = grailsApplication.config.domainMainLocations
+    def urlBaseBands        = grailsApplication.config.domainMainBands
 
 
 
-    def restClient  = new RESTClient(urlBase)
 
+
+    def restClient  = new RESTClient(urlBaseUsers)
+
+    def defineServiceResource(def resource){
+
+        switch (resource){
+
+            case 'users':
+                restClient = new RESTClient(urlBaseUsers)
+                break
+            case 'oauth':
+                restClient = new RESTClient(urlBaseOauth)
+                break
+            case 'categories':
+                restClient = new RESTClient(urlBaseCategories)
+                break
+            case 'locations':
+                restClient = new RESTClient(urlBaseLocations)
+                break
+            case 'bands':
+                restClient = new RESTClient(urlBaseBands)
+                break
+            default:
+                restClient = new RESTClient(urlBaseUsers)
+                break
+
+        }
+    }
 
 
     def getResource(def resource, def queryParams){

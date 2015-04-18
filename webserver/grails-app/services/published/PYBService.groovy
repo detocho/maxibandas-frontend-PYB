@@ -24,6 +24,7 @@ class PYBService {
 
         def groups =[]
 
+        restService.defineServiceResource('categories')
         def result = restService.getResource("/categories/"+categoryIdGroups+"/")
 
         if(result.status != HttpServletResponse.SC_OK){
@@ -103,6 +104,7 @@ class PYBService {
 
         def userId
 
+        restService.defineServiceResource('users')
         def result = restService.getResource("/users/searchByEmail/"+email+"/")
 
         if(result.status == HttpServletResponse.SC_OK){
@@ -115,6 +117,7 @@ class PYBService {
     }
 
     def getUser(def userId){
+        restService.defineServiceResource('users')
         def result = restService.getResource("/users/"+userId)
         result
     }
@@ -125,6 +128,7 @@ class PYBService {
                 access_token:accessToken
         ]
 
+        restService.defineServiceResource('users')
         def result = restService.getResource("/users/"+userId, params)
 
         result
@@ -142,6 +146,7 @@ class PYBService {
                 origin:origin
         ]
 
+        restService.defineServiceResource('users')
         def result = restService.postResource("/users/", body)
 
 
@@ -160,6 +165,7 @@ class PYBService {
                 access_token:accessToken
         ]
 
+        restService.defineServiceResource('bands')
         def result = restService.postResource("/bands/", params, body)
 
         if (result.status == HttpServletResponse.SC_CREATED){
@@ -180,6 +186,7 @@ class PYBService {
         ]
 
 
+        restService.defineServiceResource('oauth')
         def result = restService.postResource("/oauth/", body)
 
         result
