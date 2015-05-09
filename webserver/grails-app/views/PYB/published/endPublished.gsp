@@ -22,9 +22,13 @@
             <p>Número de anuncio:${bandId}</p>
 
 
-            <g:form>
+            <g:form action="http://maxibanda.mx/banda/${bandaId}">
                 <g:submitButton name="submit" class="btn btn-primary"   value="Ir a mi cuenta"></g:submitButton>
                 <g:submitButton name="submit" class="btn btn-primary"  value="Ver mi anuncio"></g:submitButton>
+            </g:form>
+
+            <g:form action="http://publica.maxibanda.mx/publica/">
+                <g:submitButton name="submit" class="btn btn-primary"   value="Publicar otro"></g:submitButton>
             </g:form>
 
         </div>

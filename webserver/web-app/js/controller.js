@@ -120,9 +120,9 @@ function PYBController ($scope, $http, $upload, Locations, Bands, Categories,Sta
         for (var i = 0; i < $files.length; i++) {
             var file = $files[i];
             console.log("EL file a cargar es"+file);
-            $scope.urlPic[indexPicture] = 'http://ec2-52-11-188-38.us-west-2.compute.amazonaws.com/publica/loading_picture.gif';
+            $scope.urlPic[indexPicture] = 'http://publica.maxibanda.mx/publica/loading_picture.gif';
             $scope.upload = $upload.upload({
-                url: 'http://ec2-54-148-217-158.us-west-2.compute.amazonaws.com/pictures/', //upload.php script, node.js route, or servlet url
+                url: 'http://images.maxibanda.mx/pictures/', //upload.php script, node.js route, or servlet url
                 method: 'POST',
                 //headers: {'header-key': 'header-value'},
                 //withCredentials: true,

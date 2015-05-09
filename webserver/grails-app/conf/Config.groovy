@@ -64,19 +64,19 @@ environments {
     development {
         grails.logging.jul.usebridge = true
         //domainMainUsers = 'http://localhost:8888'
-        domainMainUsers         = 'http://ec2-54-148-189-131.us-west-2.compute.amazonaws.com'
-        domainMainOauth         = 'http://ec2-54-148-189-131.us-west-2.compute.amazonaws.com'
-        domainMainCategories    = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
-        domainMainLocations     = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
-        domainMainBands         = 'http://ec2-52-10-76-170.us-west-2.compute.amazonaws.com'
+        domainMainUsers         = 'http://api.maxibanda.mx'
+        domainMainOauth         = 'http://api.maxibanda.mx'
+        domainMainCategories    = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
+        domainMainLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
+        domainMainBands         = 'http://bandas.maxibanda.mx'
     }
     production {
         grails.logging.jul.usebridge = false
-        domainMainUsers         = 'http://ec2-54-148-189-131.us-west-2.compute.amazonaws.com'
-        domainMainOauth         = 'http://ec2-54-148-189-131.us-west-2.compute.amazonaws.com'
-        domainMainCategories    = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
-        domainMainLocations     = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
-        domainMainBands         = 'http://ec2-52-10-76-170.us-west-2.compute.amazonaws.com'
+        domainMainUsers         = 'http://api.maxibanda.mx'
+        domainMainOauth         = 'http://api.maxibanda.mx'
+        domainMainCategories    = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
+        domainMainLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
+        domainMainBands         = 'http://bandas.maxibanda.mx'
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }

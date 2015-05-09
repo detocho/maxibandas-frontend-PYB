@@ -187,8 +187,8 @@
 <script src="${resource(dir: 'js', file: 'service.js')}"></script>
 <script >
     //var apiBaseUrl = "http://api.maxibanda.com.mx";
-    var apiBaseUrlLocations     = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com';
-    var apiBaseUrlCategories    = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com';
+    var apiBaseUrlLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com';
+    var apiBaseUrlCategories    = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com';
    // var apiBaseUrl = "http://" + document.domain + "\\:8888"
 </script>
 </body>
