@@ -64,11 +64,11 @@ environments {
     development {
         grails.logging.jul.usebridge = true
         //domainMainUsers = 'http://localhost:8888'
-        domainMainUsers         = 'http://api.maxibanda.mx'
-        domainMainOauth         = 'http://api.maxibanda.mx'
-        domainMainCategories    = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
-        domainMainLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
-        domainMainBands         = 'http://bandas.maxibanda.mx'
+        domainMainUsers         = 'http://localhost:8888'
+        domainMainOauth         = 'http://localhost:8888'
+        domainMainCategories    = 'http://localhost:8888'
+        domainMainLocations     = 'http://localhost:8888'
+        domainMainBands         = 'http://localhost:8888'
     }
     production {
         grails.logging.jul.usebridge = false

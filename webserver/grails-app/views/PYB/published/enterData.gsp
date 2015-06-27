@@ -185,11 +185,17 @@
 <script src="${resource(dir: 'js', file: 'app.js')}"></script>
 <script src="${resource(dir: 'js', file: 'controller.js')}"></script>
 <script src="${resource(dir: 'js', file: 'service.js')}"></script>
+<script src="http://www.parsecdn.com/js/parse-1.3.5.min.js"></script>
 <script >
     //var apiBaseUrl = "http://api.maxibanda.com.mx";
-    var apiBaseUrlLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com';
-    var apiBaseUrlCategories    = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com';
+    //var apiBaseUrlLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com';
+    //var apiBaseUrlCategories    = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com';
+    //var apiBaseUrlImages        = 'http://images.maxibanda.mx/pictures/';
+    var apiBaseUrlLocations     = "http://" + document.domain + "\\:8888";
+    var apiBaseUrlCategories    = "http://" + document.domain + "\\:8888";
+    var apiBaseUrlImages        = "http://" + document.domain + ":8080/pictures/";
    // var apiBaseUrl = "http://" + document.domain + "\\:8888"
+   // Parse.initialize("zbeIUDTUzN5Tn7h9IuXs5950f7UDZ1XcF1Vqsm04", "KsRuEPQboXzf4NBpiMVxSFRcgRTCW8mslxo82YOI");
 </script>
 </body>
 </html>
