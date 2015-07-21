@@ -32,6 +32,28 @@ function PYBController ($scope, $http, $q, $upload, Locations, Bands, Categories
     $scope.resizeQuality    = 0.7;
     $scope.resizeType       = 'image/jpeg';
 
+    $scope.categoryGeneros = 'MX1';
+    $scope.categoryEvents  = 'MX2';
+    $scope.locationId      = "MX";
+
+
+    $scope.init = function(){
+
+        getGeneros($scope.categoryGeneros);
+
+    };
+
+    function getGeneros(categoryId){
+
+        var params = { categoryId:categoryId};
+
+        Categories.get(params, function(data) {
+            $scope.generos = data.children_categories;
+        }, function (error){
+            $scope.generos = [];
+        });
+    }
+
 
     $scope.stateEvents = function(){
         var params = {};
@@ -45,7 +67,7 @@ function PYBController ($scope, $http, $q, $upload, Locations, Bands, Categories
     $scope.stateEvents();
 
     $scope.socialEvents = function(){
-        var params = {};
+        var params = {categoryId:$scope.categoryEvents};
         Categories.socialEvents(params, function (data){
             $scope.socialEventsData = data.children_categories;
         }, function (error) {
@@ -192,7 +214,8 @@ function PYBController ($scope, $http, $q, $upload, Locations, Bands, Categories
 
         var blob = dataURLtoBlob(urlDataImage);
 
-        $scope.urlPic[indexPicture] = 'http://publica.maxibanda.mx/publica/loading_picture.gif';
+        //$scope.urlPic[indexPicture] = 'http://publica.maxibanda.mx/publica/loading_picture.gif';
+        $scope.urlPic[indexPicture] = 'http://localhost:8080/publica/loading_picture.gif';
 
         $scope.upload = $upload.upload({
 

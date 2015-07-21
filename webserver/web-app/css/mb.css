@@ -1,110 +1,155 @@
-
 body{
-
     background-image: linear-gradient(to bottom,#f8f8f8 0,#f8f8f8 100%);
 }
-/*menu*/
-header {margin:0 0 0 0;  width:100%; background-color:#322117; position:fixed;
-    z-index:10 !important;}
-header {
-    height: 70px;
-    /*position: relative;*/
-    background-color: #fff;
-    /*border-bottom: 5px solid #E4D2B6;*/
-}
-header h1 {
-    line-height: 60px;
-}
-
-.navbar-default{
-    background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
-}
-
-
 
 .logo{
-    background-image: url('../images/mb.png');
+
+    margin-right: 70px;
+    margin-top: -18px;
+}
+
+.input-text-search-header{
+    width:380px!important;
+}
+
+.background-home{
+    background-image: url('../images/background_home.jpg')!important;
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+    text-align: center;
+    padding: 0px 0px 12% 0px;
+    min-height: 200px;
     background-repeat: no-repeat;
-    text-indent: -9000px;
-    margin-left: 40px;
-    margin-top:5px;
+    background-position: center top;
+    background-size: 104% 160%;
+    margin-top: -33px;
+    color:#FFF!important;
 }
 
-.navbar-brand {
-    float: left;
-    height: 70px;
-    padding: 5px 15px;
-    font-size: 18px;
-    line-height: 43px;
+.thumbnail a:hover{
+    text-decoration: none;
 }
 
-.container{
-    padding-top: 85px;
-}
-
-
-/****  Para el PYB **/
-.gridFeatures{
-    border:0px solid #CCC;
-    width:1000px;
-    display: inline-block;
-
-}
-.gridFeatures ul
-{
-    list-style: none;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-
-}
-.gridFeatures li a{
-    text-decoration:none;
-}
-.gridFeatures li{
-    /*border-right: 1px  dashed #dedede;
-    border-bottom: 1px dashed #dedede;*/
-    float: left;
-    height: auto;
-    position: relative;
+.thumbnail .precio{
+    color:#DF6810;
+    font-size: 1.3em;
+    /*font-weight: 700;*/
+    letter-spacing: -.5px;
     text-align: left;
-    width: 200px;
-    padding: 3px 0 0 0;
 }
 
-.caja_seleccion
-{
-
-    height:40px;
-    font-family:Arial;
-    font-size:18px;
-    border: 1px solid #eee;
-    padding: 8px 10px;
-    margin:3px;
+.thumbnail .estado{
+    color:#999;
+    font-size: 1.0em;
+    letter-spacing: -.5px;
+    text-align: left;
 }
-.big
-{
-    width:375px;
+.thumbnail  p{
+    margin: 1px;
 }
-
-.caja_registro
-{
-    height:40px;
-    font-family:Arial;
-    font-size:18px;
-    padding: 8px 10px;
-    margin:3px;
-    border: 1px solid #eee;
+.caption h3{
+    margin: 1px;
+    font-size: 1.3em;
 }
 
-textarea {
-    min-width: 375px;
-    max-width: 375px;
-    border-color: #9aa6af;
-    border-radius: 3px;
-    height: 60px;
+.total-pagination{
+    margin: 10px!important;
 }
 
-.reg_ejemplo{ padding:2px 2px 2px 5px; font-size:12px; color:#AAA;}
+.nav-sidebar > .title {
+    padding-left: 20px;
+    color:#111 !important;
+    font-weight: bold;
+}
+
+.nav-sidebar > .subtitle {
+    padding-left: 40px;
+    margin-top: 10px;
+    color:#DF6810 !important;
+
+}
+
+
+.nav-sidebar > .active > a{
+    background-color:#FFF !important;
+    color:#DF6810 !important;
+}
+
+.nav-sidebar a{
+    color:#DF6810;
+}
+
+.button-list{
+    width: 150px;
+    text-align: left;
+}
+
+.precio{
+    color:#DF6810;
+    font-size: 1.2em;
+    letter-spacing: -.5px;
+    text-align: left;
+}
+
+.precio-recomendado{
+    color:#DF6810;
+    font-size: 1.0em;
+    letter-spacing: -.5px;
+    text-align: left;
+}
+
+/*Esto es solo para la pagina de detalle*/
+/*
+.jumbotron{
+	padding-left: 2px!important;
+	padding-top: 2px!important;
+	padding-right: 2px!important;
+	padding-bottom: 2px!important;
+}*/
+
+
+/* para el login */
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/*************  fin de login *******/
+
+
+
+
 
 /* Fotos*/
 
@@ -217,98 +262,4 @@ textarea {
 
 input[type='file'] {
     color: transparent;
-}
-
-.jumbotron{
-    background-color: #fff;
-}
-
-/*footer*/
-footer {
-    background-color: #333333;
-}
-.foo_up {
-    background-color: #231F20;
-    padding: 10px 2%;
-    display: inline-block;
-    width: 100%;
-    color: #FFF;
-}
-.foo_down {
-    padding: 20px 2%;
-    display: inline-block;
-    width: 96%;
-    color:#ffffff;
-}
-.foo_icons, .copyright {
-    float:left;
-}
-.foo_nav {
-    float:right;
-    padding-top: 7px;
-}
-.foo_cont {
-    float: right;
-    color: #fff;
-    margin-top: 5px;
-}
-.foo_icons li{
-    display: inline;
-    margin-right:20px;
-}
-.foo_nav li {
-    display: inline;
-    margin-left:20px;
-}
-
-
-@media only screen and (max-width: 780px) {
-    header {
-        height: 65px;
-        z-index: 2;
-        background-color: #060a0c;
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-    }
-
-    header h1 {
-        color: #ffffff;
-        text-align: center;
-        padding-left: 0;
-        display: block;
-        float: right;
-        width: 215px;
-    }
-
-    /*Content Sliding Open Effect*/
-    header.open, .content.open {
-        -webkit-transform: translate3d(300px,0,0);
-        -webkit-animation: open .5s ease-in-out;
-        -moz-transform: translate3d(300px,0,0);
-        -moz-animation: open .5s ease-in-out;
-        transform: translate3d(300px,0,0);
-        animation: open .5s ease-in-out;
-    }
-
-}
-
-@media screen and (max-width: 320px) {
-    /*body{background-color:purple;}*/
-    .logo{
-        background-image: url('../images/mb_min.png');
-        width: 65px;
-        margin-top:5px;
-    }
-}
-
-@media (min-width: 768px) {
-    .navbar-right {
-        float: right !important;
-        margin-right: 20px;
-    }
 }

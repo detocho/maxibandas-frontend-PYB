@@ -6,39 +6,39 @@
 </head>
 <body>
 
-<div  class="panel panel-default">
+<div class="container">
 
-    <div class="panel-heading">
-        <h3 class="panel-title">Publica tu banda [Felicidades]</h3>
+    <div class="alert alert-success" role="alert">
+        <h1><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Felicidades ya publicaste!!!</h1>
     </div>
-    <div class="panel-body">
 
-        <div class="jumbotron">
+    <div class="panel panel-default">
+        <div class="panel-body">
 
-            <div class="alert alert-success" role="alert">
-                <h1><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Felicidades ya publicaste!!!</h1>
+            <div class="row">
+                <div class="col-lg-4">
+                        <p>Número de anuncio:${bandId}  <a href="#">Ver anuncio</a></p>
+                </div>
             </div>
 
-            <p>Número de anuncio:${bandId}</p>
+            <div class="row">
+                <div class="col-lg-4">
+                        <g:submitButton name="submit" class="btn btn-warning btn-lg"   value="Publicar otro"></g:submitButton>
+                        <g:submitButton name="submit" class="btn btn-warning btn-lg"   value="Mi cuenta"></g:submitButton>
 
-
-            <g:form action="http://maxibanda.mx/banda/${bandaId}">
-                <g:submitButton name="submit" class="btn btn-primary"   value="Ir a mi cuenta"></g:submitButton>
-                <g:submitButton name="submit" class="btn btn-primary"  value="Ver mi anuncio"></g:submitButton>
-            </g:form>
-
-            <g:form action="http://publica.maxibanda.mx/publica/">
-                <g:submitButton name="submit" class="btn btn-primary"   value="Publicar otro"></g:submitButton>
-            </g:form>
+                </div>
+            </div>
 
         </div>
 
 
 
     </div>
-</div>
 
-
+    <footer>
+        <p class="pull-right">&copy; 2015 maxibandas, Inc. &middot; </p>
+    </footer>
+</div><!-- div container -->
 
 </body>
 </html>

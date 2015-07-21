@@ -20,7 +20,7 @@ module.factory('Bands', function ($resource){
 
 // TODO generar un servicio para las categorias
 module.factory('Categories', function($resource){
-    var url = apiBaseUrlCategories + "/categories/MX2";
+    var url = apiBaseUrlCategories + "/categories/:categoryId";
     return $resource(url,{},{
        socialEvents:{method:"GET"}
     });

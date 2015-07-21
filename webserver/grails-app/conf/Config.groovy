@@ -63,8 +63,15 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        //domainMainUsers = 'http://localhost:8888'
-        domainMainUsers         = 'http://localhost:8888'
+        domainMainUsers = 'http://localhost:8888'
+        /*
+        domainMainUsers         = 'http://api.maxibanda.com.mx'
+        domainMainOauth         = 'http://api.maxibanda.com.mx'
+        domainMainCategories    = 'http://api.maxibanda.com.mx'
+        domainMainLocations     = 'http://api.maxibanda.com.mx'
+        domainMainBands         = 'http://api.maxibanda.com.mx'
+        */
+
         domainMainOauth         = 'http://localhost:8888'
         domainMainCategories    = 'http://localhost:8888'
         domainMainLocations     = 'http://localhost:8888'

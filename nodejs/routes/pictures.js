@@ -10,7 +10,7 @@ exports.post = function (request, response){
             "secure_url": ""
         }, {
             "size": "200X160",
-            "url": "http://localhost:8080/published/thumb1.jpg",
+            "url": "http://localhost:8080/publica/thumb1.jpg",
             "secure_url": ""
         }, {
             "size": "800X600",
@@ -18,7 +18,7 @@ exports.post = function (request, response){
             "secure_url": ""
         }, {
             "size": "100X75",
-            "url": "http://localhost:8080/published/thumb1.jpg",
+            "url": "http://localhost:8080/publica/thumb1.jpg",
             "secure_url": ""
         }, {
             "size": "60X60",
